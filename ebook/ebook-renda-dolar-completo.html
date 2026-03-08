@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="pt-BR">
+\1
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10826750460"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-10826750460');
+</script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Renda Recorrente e Atemporal em Dólar — Guilherme Miranda</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #111a2e;
+      --card2: #0f1a30;
+      --text: #e8edf7;
+      --muted: #a6b3cc;
+      --accent: #57a6ff;
+      --line: #22314f;
+      --ok: #44d19b;
+      --warn: #f7b731;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: linear-gradient(180deg, #0b1220 0%, #0f1730 100%);
+      color: var(--text);
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.85;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 100px; }
+
+    /* HERO */
+    .hero {
+      background: radial-gradient(1200px 320px at 20% -20%, #2a4d91, transparent), var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 48px 40px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 38px; line-height: 1.15; margin-bottom: 16px; color: #fff; }
+    .hero .sub { font-size: 20px; color: #9dcbff; margin-bottom: 20px; font-style: italic; }
+    .hero .author { color: var(--muted); font-size: 15px; }
+
+    /* TOC */
+    .toc {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; padding: 28px 32px; margin-bottom: 32px;
+    }
+    .toc h3 { color: var(--accent); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin: 8px 0; }
+    .toc a { color: #9dcbff; text-decoration: none; font-size: 15px; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* SECTIONS */
+    .section {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 18px; padding: 40px 44px; margin-bottom: 28px;
+    }
+    h2 {
+      font-size: 30px; color: #fff; margin-bottom: 8px; margin-top: 0;
+      padding-bottom: 16px; border-bottom: 1px solid var(--line);
+    }
+    .chapter-label {
+      font-size: 12px; color: var(--accent); text-transform: uppercase;
+      letter-spacing: 3px; margin-bottom: 8px; display: block;
+    }
+    h3 { font-size: 21px; color: #c8deff; margin-top: 36px; margin-bottom: 12px; }
+    h4 { font-size: 17px; color: var(--warn); margin-top: 28px; margin-bottom: 8px; }
+    p { color: var(--text); margin-bottom: 16px; }
+    .lead { font-size: 19px; color: #c0d4f0; line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+    ul, ol { padding-left: 22px; margin-bottom: 16px; }
+    li { margin-bottom: 9px; color: var(--text); }
+    strong { color: #fff; }
+
+    /* CALLOUTS */
+    .box {
+      border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+      border-left: 4px solid;
+    }
+    .box.tip { background: #0d2518; border-color: var(--ok); }
+    .box.tip .box-label { color: var(--ok); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .box.warn { background: #1e1a08; border-color: var(--warn); }
+    .box.warn .box-label { color: var(--warn); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .box.info { background: #0a1e38; border-color: var(--accent); }
+    .box.info .box-label { color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .box p { margin: 0; font-size: 15px; }
+
+    /* PROMPT BLOCK */
+    .prompt {
+      background: #080f1c; border: 1px solid #1e3060;
+      border-radius: 10px; padding: 18px 22px; margin: 20px 0;
+      font-family: 'Courier New', monospace; font-size: 14px;
+      color: #a8d4ff; line-height: 1.6;
+    }
+    .prompt-label {
+      font-family: Inter, sans-serif; font-size: 11px; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block;
+    }
+
+    /* COMPARE TABLE */
+    .compare { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    .compare th { background: #1a2d50; color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; padding: 12px 16px; text-align: left; }
+    .compare td { padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 15px; vertical-align: top; }
+    .compare tr:last-child td { border-bottom: none; }
+    .compare .good { color: var(--ok); }
+    .compare .bad { color: #ff6b6b; }
+
+    /* STEP NUMBERS */
+    .steps { counter-reset: step; list-style: none; padding-left: 0; }
+    .steps li {
+      counter-increment: step;
+      padding: 14px 14px 14px 56px;
+      position: relative;
+      background: #0a1628;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute; left: 16px; top: 14px;
+      background: var(--accent); color: #000;
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px;
+    }
+
+    /* CHECK LIST */
+    .check { list-style: none; padding-left: 0; }
+    .check li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+    .check li::before { content: "✓"; color: var(--ok); font-weight: 700; position: absolute; left: 0; }
+
+    /* EXAMPLE BLOCK */
+    .example {
+      background: #0c1e38; border: 1px dashed #2a4070;
+      border-radius: 10px; padding: 18px 22px; margin: 20px 0;
+    }
+    .example-label { font-size: 11px; color: #9dcbff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+
+    .divider { border: none; border-top: 1px solid var(--line); margin: 32px 0; }
+    .footer { margin-top: 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; text-align: center; }
+  </style>
+</head>
+<body>
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Renda Recorrente e Atemporal em Dólar</h1>
+    <p class="sub">Como publicar livros na Amazon com IA e construir um catálogo que vende para o mundo inteiro — enquanto você dorme.</p>
+    <p class="author"><strong>Guilherme Miranda</strong> · Autor com 70+ títulos em 5 idiomas · Royalties em dólar todo mês</p>
+  </div>
+
+  <!-- SUMÁRIO -->
+  <div class="toc">
+    <h3>Sumário</h3>
+    <ol>
+      <li><a href="#intro">Introdução — Por que este livro existe</a></li>
+      <li><a href="#cap1">Capítulo 1 — O Mercado e o Método</a></li>
+      <li><a href="#cap2">Capítulo 2 — Escrita com IA: do Prompt ao Manuscrito</a></li>
+      <li><a href="#cap3">Capítulo 3 — Imagens com IA: a Capa que Vende</a></li>
+      <li><a href="#cap4">Capítulo 4 — Publicação, SEO e Escala na Amazon</a></li>
+      <li><a href="#cap5">Capítulo 5 — Arsenal de IA por Função</a></li>
+      <li><a href="#cap6">Capítulo 6 — O Segredo dos Livros que Vendem</a></li>
+      <li><a href="#cap7">Capítulo 7 — Renda Atemporal: a Mentalidade que Sustenta</a></li>
+      <li><a href="#conclusao">Conclusão — O próximo passo é seu</a></li>
+      <li><a href="#apendice">Apêndices — Ferramentas, checklists e prompts de referência</a></li>
+    </ol>
+  </div>
+
+  <!-- INTRODUÇÃO -->
+  <div class="section" id="intro">
+    <span class="chapter-label">Introdução</span>
+    <h2>Por que este livro existe</h2>
+    <p class="lead">Enquanto você lê esta frase, há autores sem nome, sem seguidores e sem fama recebendo depósitos em dólar da Amazon. Não porque fizeram algo extraordinário. Porque seguiram um método.</p>
+
+    <p>Eu sou Guilherme Miranda. Tenho mais de 70 títulos publicados na Amazon, distribuídos em português, inglês, espanhol, alemão e francês. Meus livros chegam a leitores nos Estados Unidos, na Europa, na América Latina — em países que nunca visitei, para pessoas que nunca vou conhecer. Todo mês, royalties chegam na minha conta. Não porque eu postei algo. Não porque fiz uma live. Mas porque criei ativos digitais que trabalham sozinhos.</p>
+
+    <p>Esse modelo não é segredo. A Amazon KDP é pública. As ferramentas de IA estão disponíveis para qualquer pessoa. O que falta para a maioria não é acesso — é método. É saber o que fazer, em que ordem, e por quê.</p>
+
+    <p>Este livro é esse método. Cada capítulo foi construído a partir de erros reais, acertos reais e dados reais do meu catálogo. Não é teoria retirada de artigos de blog. É o que eu faço, o que testei, o que otimizei ao longo do tempo.</p>
+
+    <h3>O que você vai aprender aqui</h3>
+    <ul>
+      <li>Como entender o funcionamento real do Amazon KDP — incluindo como receber royalties no seu país e como o algoritmo decide quem aparece nas buscas.</li>
+      <li>Como usar inteligência artificial para escrever livros do zero, mesmo sem ser escritor e sem falar inglês.</li>
+      <li>Como criar capas profissionais que convertem usando IA — sem pagar designer.</li>
+      <li>Como publicar com SEO real dentro da Amazon, de forma que o seu livro seja encontrado por quem já quer comprar.</li>
+      <li>Como construir um catálogo que escala — com séries, múltiplos idiomas e nichos validados.</li>
+      <li>Como pensar como produtor editorial, não como escritor. Esta distinção muda tudo.</li>
+    </ul>
+
+    <div class="box info">
+      <div class="box-label">Como usar este livro</div>
+      <p>Leia os capítulos em ordem. Cada um constrói sobre o anterior. Não pule etapas na primeira leitura. Depois, volte ao livro como referência quando estiver executando cada fase. Use os prompts dos apêndices diretamente nas ferramentas de IA indicadas.</p>
+    </div>
+
+    <h3>Uma coisa antes de começar</h3>
+    <p>Este não é um livro para quem quer enriquecer em uma semana. Se você procura um esquema rápido, este método não é para você. O que eu vou te mostrar exige esforço inicial, curva de aprendizado e consistência. A recompensa é desproporcional — porque você está construindo ativos, não completando tarefas. Ativo é diferente de tarefa. Tarefa termina quando você para. Ativo continua quando você dorme.</p>
+    <p>Agora vamos ao trabalho.</p>
+  </div>
+
+  <!-- CAPÍTULO 1 -->
+  <div class="section" id="cap1">
+    <span class="chapter-label">Capítulo 1</span>
+    <h2>O Mercado e o Método</h2>
+    <p class="lead">Antes de escrever uma palavra ou gerar uma imagem, você precisa entender o jogo. Como a Amazon funciona, como o dinheiro chega e por que pensar em catálogo — e não em um único livro — muda completamente a equação.</p>
+
+    <h3>O que é o Amazon KDP e por que ele importa</h3>
+    <p>KDP significa Kindle Direct Publishing. É a plataforma da Amazon que permite que qualquer pessoa publique ebooks e livros físicos sob demanda, sem precisar de editora, sem estoque e sem custo fixo de publicação. O cadastro é gratuito. A Amazon distribui para mais de 100 países. Você define o preço, escolhe o nicho e fica com a maior parte da receita.</p>
+    <p>Isso existia antes da IA. O que a inteligência artificial fez foi eliminar a principal barreira: a produção de conteúdo. Antes, publicar um livro exigia escrever — o que para a maioria das pessoas é lento, caro ou simplesmente inviável. Hoje, com as ferramentas certas e o método certo, qualquer pessoa pode produzir um livro de qualidade em dias, não em meses.</p>
+    <p>O mercado americano de ebooks movimentou mais de 2 bilhões de dólares em 2024. A Amazon controla aproximadamente 80% desse mercado. Não existe outra plataforma de distribuição digital de livros que chegue perto disso em alcance, confiança do consumidor e infraestrutura de pagamento. Para autores de qualquer país, isso significa acesso direto ao maior mercado editorial do mundo, em dólar, sem intermediários.</p>
+
+    <h3>Como receber seus royalties no seu país</h3>
+    <p>Esta é a pergunta que mais recebo e que mais paralisa iniciantes. Então vamos resolver de uma vez.</p>
+    <p>A Amazon paga royalties mensalmente, com um atraso operacional de aproximadamente 60 dias após o mês de venda. Ou seja: vendas de janeiro são pagas no final de março. Isso não é problema — é o prazo padrão de todas as plataformas digitais internacionais.</p>
+    <p>O pagamento pode ser feito por dois métodos principais para autores internacionais:</p>
+    <ul>
+      <li><strong>Transferência bancária internacional:</strong> a Amazon deposita diretamente em uma conta bancária local, já com a conversão cambial aplicada no momento do pagamento. O valor mínimo para transferência é de 100 dólares por mês.</li>
+      <li><strong>PayPal:</strong> a Amazon deposita em dólar na sua conta PayPal. Você converte e transfere para o banco quando quiser. O valor mínimo é de 10 dólares por mês — mais acessível para quem está começando.</li>
+    </ul>
+    <p>Quanto ao imposto de renda: royalties recebidos do exterior por pessoas físicas devem ser declarados como "rendimentos recebidos do exterior" na declaração anual do IR. Para valores maiores, o recolhimento é feito mensalmente via carnê-leão. Consulte um contador para o seu caso específico — mas o processo existe, é simples e está dentro da lei.</p>
+
+    <div class="box warn">
+      <div class="box-label">Atenção</div>
+      <p>O KDP exige que você preencha um formulário fiscal americano chamado W-8BEN. Ele declara que você não é residente americano e define a alíquota de retenção de imposto na fonte conforme seu país e tratados aplicáveis. Esse preenchimento é feito dentro do próprio painel do KDP, em poucos minutos.</p>
+    </div>
+
+    <h3>Ebooks vs. Paperbacks: qual publicar?</h3>
+    <p>O KDP permite publicar em dois formatos: ebook (digital, lido no Kindle ou no app Kindle) e paperback (livro físico impresso sob demanda, sem estoque). Para iniciantes, a recomendação é começar com ebook por três razões: custo de formatação menor, aprovação mais rápida e royalty de 70% para preços entre $2,99 e $9,99.</p>
+    <p>O paperback faz sentido depois que o ebook já tem demanda comprovada. Muitos leitores preferem o físico — especialmente em nichos como livros infantis, cadernos de exercícios (planners, agendas, livros de colorir) e guias técnicos. Ao adicionar o paperback, você não cria um novo produto — você adiciona um formato ao mesmo título, com o mesmo ISBN e a mesma página de produto na Amazon. Isso concentra reviews e vendas em um único lugar.</p>
+
+    <h3>Kindle Unlimited: o multiplicador silencioso</h3>
+    <p>O Kindle Unlimited é o serviço de assinatura da Amazon. Por uma mensalidade fixa, o assinante lê quantos livros quiser. Para o autor, isso significa que você recebe por cada página lida — não por cada venda. O valor por página lida varia mensalmente (em torno de $0,004 a $0,005 por página), mas o volume compensa: um assinante que lê 200 páginas do seu livro gera aproximadamente $1 em royalty. Para um livro de 200 páginas com 500 leitores por mês, isso é $500 — além das vendas normais.</p>
+    <p>Para estar no Kindle Unlimited, o livro precisa estar no programa KDP Select, que exige exclusividade digital: você não pode vender o ebook em nenhuma outra plataforma durante o período de 90 dias do ciclo. Para a maioria dos iniciantes, vale a pena — o volume de leitores do KU na Amazon supera qualquer outra plataforma de ebook do mundo.</p>
+
+    <h3>Mentalidade de produtor editorial</h3>
+    <p>Esta é a distinção mais importante deste livro inteiro. Leia com atenção.</p>
+    <p>Um escritor pensa assim: <em>"Preciso escrever algo único, que represente minha visão artística, que seja perfeito antes de sair."</em> Um produtor editorial pensa assim: <em>"Existe demanda para este tema? Consigo produzir um livro que resolva o problema desta audiência? Em quanto tempo consigo publicar?"</em></p>
+    <p>Ambas as formas de pensar têm valor. Para construir renda recorrente na Amazon, a mentalidade de produtor editorial é indispensável. Você não está escrevendo literatura. Você está criando produtos editoriais com demanda comprovada, posicionados estrategicamente em um mercado global.</p>
+    <p>O escritor espera a inspiração. O produtor editorial segue o processo. O escritor tem um livro especial que levou anos. O produtor editorial tem um catálogo de 20 títulos que gera royalties todo mês. Os dois caminhos são válidos — mas apenas um deles gera renda passiva consistente.</p>
+    <p>Parte do meu catálogo é a série Turma da Aventura, publicada em cinco idiomas. Não criei ela esperando que fosse um bestseller literário. Criei porque identifiquei demanda, produzi com consistência e otimizei com os dados. Os royalties chegam todo mês porque o produto existe, está bem posicionado e atende uma necessidade real. Isso é mentalidade de produtor.</p>
+
+    <h3>Por que séries ganham mais do que livros soltos</h3>
+    <p>Séries são o melhor investimento em catálogo por um motivo simples: o custo de aquisição de um leitor é amortizado ao longo de múltiplos volumes. Quando alguém compra o Volume 1 e gosta, a probabilidade de comprar o Volume 2 é altíssima — e o Volume 2 não precisou de nenhum novo esforço de marketing para ser vendido. Esse efeito se repete em cada volume.</p>
+    <p>Além disso, o algoritmo da Amazon favorece séries ativamente. Livros de uma mesma série aparecem juntos na página de cada título, no email de recomendações e nas listas "Clientes que compraram este item também compraram". Isso cria um loop de visibilidade que livros isolados não têm.</p>
+    <p>A regra prática: se você vai publicar um livro em um nicho, planeje desde o início pelo menos 3 volumes. O Volume 1 cria audiência. O Volume 2 fideliza. O Volume 3 consolida. A partir do Volume 3, o catálogo começa a trabalhar sozinho.</p>
+
+    <h3>Pesquisa de nicho: onde está a demanda real</h3>
+    <p>O erro mais comum de iniciantes é escolher um nicho pelo que <em>gostam</em>, não pelo que <em>vende</em>. Seus gostos pessoais são irrelevantes para o algoritmo da Amazon. O que importa é: existe demanda? Existe concorrência administrável? Existe espaço para um novo título competir?</p>
+    <p>O fluxo de validação de nicho que uso tem quatro etapas:</p>
+    <ol class="steps">
+      <li><strong>Busca na Amazon:</strong> Digite termos relacionados ao tema que você está considerando na busca da Amazon. Observe os resultados: quantos livros aparecem? Qual é a qualidade das capas? Os títulos são otimizados ou genéricos? Se a primeira página de resultados tem capas ruins e títulos sem palavras-chave, o nicho tem espaço para um produto bem feito.</li>
+      <li><strong>Análise dos best-sellers:</strong> Clique nos 5 primeiros resultados e veja o BSR (Best Seller Rank) de cada um. O BSR indica posição no ranking de vendas da categoria. Um BSR abaixo de 100.000 significa vendas consistentes. Se todos os top 5 têm BSR baixo, o nicho tem demanda real.</li>
+      <li><strong>Contagem de reviews:</strong> Livros com 50 a 500 reviews estão em um nicho maduro mas ainda acessível. Livros com mais de 1.000 reviews indicam nicho muito competitivo — difícil para iniciantes. Livros com menos de 20 reviews podem indicar demanda baixa ou produto recente.</li>
+      <li><strong>Google Deep Research:</strong> Use esta ferramenta para mapear o volume de buscas relacionado ao tema. Keywords com alta intenção de compra e baixa competição são ouro. O prompt específico para esta pesquisa está no Capítulo 5.</li>
+    </ol>
+
+    <div class="box tip">
+      <div class="box-label">Nichos atemporais vs. nichos de tendência</div>
+      <p>Nichos atemporais (saúde, finanças pessoais, relacionamentos, autoajuda prática, livros infantis, culinária, produtividade) geram royalties por anos sem precisar de atualização constante. Nichos de tendência (temas virais, celebridades, eventos atuais) geram pico de vendas e depois despencam. Para construir renda passiva de longo prazo, priorize atemporais.</p>
+    </div>
+  </div>
+
+  <!-- CAPÍTULO 2 -->
+  <div class="section" id="cap2">
+    <span class="chapter-label">Capítulo 2</span>
+    <h2>Escrita com IA: do Prompt ao Manuscrito</h2>
+    <p class="lead">A inteligência artificial não substituiu o autor. Ela eliminou a parte do trabalho que impedia a maioria das pessoas de publicar. Você ainda precisa pensar, dirigir e revisar. Mas não precisa mais escrever do zero.</p>
+
+    <h3>O que a IA faz bem e o que ela não faz</h3>
+    <p>Antes de entrar no fluxo de produção, é essencial ter clareza sobre o papel da IA. Ela é uma ferramenta extraordinária de execução — e uma ferramenta medíocre de direção. Isso significa: a IA escreve muito bem quando você sabe exatamente o que quer. Ela produz conteúdo genérico e sem alma quando você não tem clareza sobre o que pede.</p>
+    <p>A IA faz bem: rascunhos estruturados, expansão de ideias, reescrita de trechos fracos, manutenção de tom ao longo de capítulos longos, tradução editorial, variações de título e descrição.</p>
+    <p>A IA não faz bem: escolher o nicho certo por você, decidir a estrutura do livro sem orientação, criar diferenciação genuína em relação à concorrência, ou substituir sua experiência pessoal e exemplos concretos. Esses elementos precisam vir de você — e são exatamente o que transforma um livro mediano em um livro que retém leitores e gera reviews positivos.</p>
+
+    <h3>As ferramentas e quando usar cada uma</h3>
+
+    <h4>Claude (claude.ai)</h4>
+    <p>Claude é, na minha experiência, a melhor IA para escrita longa com consistência. Ele mantém o tom ao longo de capítulos extensos, entende nuances de estilo e é excelente para revisão profunda. Use Claude para: estruturação de capítulos, rascunho completo de livros de não-ficção, revisão de naturalidade, reescrita de trechos artificiais.</p>
+
+    <h4>DeepSeek</h4>
+    <p>DeepSeek é a alternativa gratuita que mais se aproxima da qualidade do Claude. Para iniciantes com orçamento limitado, é a escolha certa para começar. É especialmente forte em textos técnicos e informativos. Use DeepSeek para: primeiros rascunhos, textos informativos, tradução editorial gratuita de alta qualidade.</p>
+
+    <h4>ChatGPT (OpenAI)</h4>
+    <p>ChatGPT é versátil e amplamente documentado. Para escrita de livros, Claude e DeepSeek performam melhor. Mas para capas e geração de imagens via DALL-E, o ChatGPT é minha primeira escolha. Use ChatGPT para: criação de capas, brainstorming de títulos, geração de imagens, prompts de ilustração.</p>
+
+    <h4>TRAE</h4>
+    <p>TRAE é uma IDE com IA integrada — um ambiente de desenvolvimento que permite organizar o manuscrito em arquivos por capítulo, versionar o trabalho (nunca perder uma versão anterior) e chamar a IA diretamente dentro do contexto do texto. Para quem produz em volume, é uma ferramenta de organização poderosa. Use TRAE para: gestão de manuscritos longos e séries, versionamento, produção em alto volume.</p>
+
+    <h3>O briefing: a fundação de tudo</h3>
+    <p>O briefing editorial é o documento mais importante do processo. Sem ele, a IA produz conteúdo genérico que poderia ser de qualquer livro sobre o mesmo tema. Com um briefing bem feito, a IA produz exatamente o livro que você planejou.</p>
+    <p>Um briefing completo tem os seguintes elementos:</p>
+    <ul>
+      <li><strong>Título provisório e palavras-chave alvo:</strong> o título que você pretende publicar e as 3 a 5 palavras-chave principais para as quais o livro deve estar otimizado.</li>
+      <li><strong>Gênero e subgênero:</strong> seja preciso. Não apenas "autoajuda" — mas "autoajuda financeira para jovens adultos de 20 a 35 anos".</li>
+      <li><strong>Público-alvo detalhado:</strong> quem é essa pessoa? O que ela já sabe? O que ela não sabe? Qual é o problema principal que ela tem e que o livro resolve?</li>
+      <li><strong>Transformação central:</strong> o que o leitor vai conseguir fazer, saber ou sentir depois de terminar o livro que não conseguia antes?</li>
+      <li><strong>Tom e estilo:</strong> formal ou casual? Técnico ou narrativo? Com exemplos pessoais ou impessoal? Com humor ou sério?</li>
+      <li><strong>Extensão alvo:</strong> número de capítulos e palavras-alvo por capítulo. Para ebooks, entre 15.000 e 30.000 palavras é o padrão que gera boa percepção de valor.</li>
+      <li><strong>Estrutura de capítulos:</strong> um sumário detalhado com 2 a 3 frases explicando o objetivo de cada capítulo.</li>
+      <li><strong>O que deve aparecer:</strong> temas, exemplos, conceitos ou referências obrigatórias.</li>
+      <li><strong>O que deve ser evitado:</strong> temas fora do escopo, linguagem inadequada para o público, exemplos que não se aplicam.</li>
+    </ul>
+
+    <div class="prompt">
+      <span class="prompt-label">Prompt para Claude — Criar briefing editorial</span>
+Crie um briefing editorial completo para um ebook sobre [tema]. 
+
+Público-alvo: [descrição detalhada do leitor ideal]
+Palavra-chave principal: [KW]
+Tom: [tom desejado]
+Extensão: [X] capítulos de aproximadamente [Y] palavras cada
+
+O briefing deve incluir:
+1. Proposta de título otimizado para Amazon KDP com a palavra-chave principal
+2. 4 títulos alternativos
+3. Sumário detalhado com objetivo de cada capítulo em 2 frases
+4. Transformação central do leitor (antes e depois)
+5. 3 diferenciais em relação a livros similares no mercado
+6. Tom e estilo recomendados
+7. 7 palavras-chave para os campos de KW do KDP
+    </div>
+
+    <h3>Estruturando capítulos antes de escrever</h3>
+    <p>Nunca peça para a IA escrever um capítulo sem antes definir a estrutura interna dele. Isso é como pedir para alguém construir uma casa sem planta. O resultado vai existir — mas provavelmente não vai ser o que você queria.</p>
+    <p>Antes de gerar o rascunho de qualquer capítulo, crie um documento de estrutura contendo: o objetivo do capítulo em uma frase, os 5 a 7 tópicos que o capítulo deve cobrir, a abertura sugerida, a conclusão e transição para o próximo capítulo. Com essa estrutura em mãos, o prompt de geração fica muito mais preciso e o resultado é significativamente melhor.</p>
+
+    <h3>O fluxo completo de produção de um capítulo</h3>
+    <ol class="steps">
+      <li><strong>Defina o objetivo:</strong> Escreva em uma frase o que o leitor vai saber ou conseguir fazer depois de ler este capítulo. Ex: "Ao final deste capítulo, o leitor vai saber como escolher um nicho com demanda real na Amazon antes de escrever uma palavra."</li>
+      <li><strong>Liste os tópicos:</strong> Escreva de 5 a 7 tópicos que o capítulo deve cobrir, em ordem lógica. Cada tópico vai virar uma seção.</li>
+      <li><strong>Gere a estrutura com IA:</strong> Peça para o Claude criar o outline detalhado do capítulo com subtítulos e 2 frases descrevendo cada seção.</li>
+      <li><strong>Gere o rascunho completo:</strong> Com a estrutura aprovada, peça o rascunho completo seção por seção, não o capítulo inteiro de uma vez. Isso mantém a qualidade mais alta.</li>
+      <li><strong>Revise a consistência:</strong> Compare com os capítulos anteriores. O tom é o mesmo? Os termos técnicos são usados de forma consistente? Há contradições?</li>
+      <li><strong>Adicione sua voz:</strong> Insira exemplos pessoais, casos reais, opiniões e observações que só você pode dar. Esse conteúdo é o que diferencia seu livro dos demais sobre o mesmo tema.</li>
+      <li><strong>Revisão final:</strong> Leia em voz alta. Se soar artificial em algum ponto, reescreva aquele trecho — manualmente ou com prompt específico de "reescrita natural".</li>
+    </ol>
+
+    <div class="prompt">
+      <span class="prompt-label">Prompt modelo para gerar um capítulo</span>
+Você é um autor especialista em [tema]. Escreva o Capítulo [X] de um livro chamado "[título]".
+
+Objetivo do capítulo: [objetivo em 1 frase]
+Público-alvo: [descrição do leitor]
+Tom: [tom — ex: direto e prático, sem jargões desnecessários]
+Extensão: aproximadamente [X] palavras
+
+O capítulo deve cobrir os seguintes tópicos, nesta ordem:
+1. [Tópico 1]
+2. [Tópico 2]
+3. [Tópico 3]
+4. [Tópico 4]
+5. [Tópico 5]
+
+Use subtítulos para cada seção. 
+Inclua pelo menos 2 exemplos concretos por seção.
+Termine com uma transição natural para o próximo capítulo, que trata de [próximo tema].
+    </div>
+
+    <h3>Como manter consistência em uma série</h3>
+    <p>Séries exigem que personagens, mundo, tom e vocabulário sejam consistentes ao longo de múltiplos livros produzidos em momentos diferentes. Com IA, isso é resolvido com um "documento de contexto de série" — um arquivo que você alimenta para a ferramenta no início de cada sessão de escrita.</p>
+    <p>Este documento contém: descrição detalhada dos personagens principais (aparência, personalidade, forma de falar, história), glossário do mundo (termos, lugares, regras), tom e estilo da série, e os principais eventos dos volumes anteriores. Com isso, a IA nunca vai contradizer o que aconteceu no Volume 1 ao escrever o Volume 3.</p>
+
+    <h3>Como revisar para soar natural</h3>
+    <p>O maior problema do texto gerado por IA não é qualidade de informação — é naturalidade. Existem padrões que entregam que um texto foi gerado por IA: frases com estrutura muito paralela, excesso de conectivos ("além disso", "por outro lado", "em suma"), ausência de imperfeições e variações de ritmo, e excesso de afirmações positivas sem tensão ou conflito.</p>
+    <p>Para corrigir isso, siga estas regras:</p>
+    <ul>
+      <li>Varie o tamanho das frases. Frases curtas têm impacto. Frases longas criam ritmo e permitem nuances. Um bom texto alterna entre os dois.</li>
+      <li>Corte "além disso" e "por outro lado" sempre que possível. Substitua por estruturas mais diretas ou, simplesmente, não use conectivo nenhum.</li>
+      <li>Adicione imperfeições intencionais: uma pergunta retórica, uma frase incompleta para efeito, uma observação pessoal que quebra o tom formal por um momento.</li>
+      <li>Insira dados concretos: números, datas, nomes reais. Texto genérico fala em "muitos casos". Texto bom fala em "42% dos leitores do Kindle".</li>
+    </ul>
+
+    <div class="prompt">
+      <span class="prompt-label">Prompt para revisar naturalidade</span>
+Reescreva o trecho abaixo para soar mais natural e humano. 
+
+Regras:
+- Varie o tamanho das frases
+- Elimine conectivos redundantes ("além disso", "por outro lado", "em suma")
+- Substitua afirmações genéricas por dados ou exemplos concretos
+- Mantenha o tom [tom original] e a informação original intacta
+- O resultado deve ter aproximadamente o mesmo número de palavras
+
+Trecho: [cole o trecho aqui]
+    </div>
+
+    <h3>Produção em inglês sem falar inglês</h3>
+    <p>Esta é a objeção número um de muitos autores — e é completamente resolvível com IA. O fluxo que uso é este: crio o briefing e a estrutura em português, gero o rascunho em português (ou diretamente em inglês, dependendo da complexidade), e uso DeepSeek ou Claude para tradução editorial de alta qualidade.</p>
+    <p>A diferença entre tradução automática e tradução editorial está no contexto. Uma tradução automática simples pega "vamos colocar a mão na massa" e traduz literalmente — o que não faz sentido em inglês. Uma tradução editorial entende que a expressão significa "let's get to work" ou "let's dive in" — dependendo do tom e do contexto. Isso é o que você pede explicitamente no prompt.</p>
+
+    <div class="prompt">
+      <span class="prompt-label">Prompt para DeepSeek — Tradução editorial</span>
+Traduza o texto abaixo do português para o inglês americano.
+
+Importante:
+- NÃO faça tradução literal
+- Adapte expressões idiomáticas para equivalentes naturais em inglês americano
+- Mantenha o tom: [tom — ex: direto, prático, sem jargões]
+- O público é: [descrição do público americano/internacional]
+- Preserve a estrutura de parágrafos e subtítulos
+
+Texto: [cole o texto aqui]
+    </div>
+
+    <h3>Múltiplos idiomas: o multiplicador de catálogo</h3>
+    <p>Um livro em cinco idiomas é, na prática, cinco fontes de royalty a partir de um único produto. O custo marginal é quase zero — apenas o tempo de revisar a tradução gerada por IA. O impacto no faturamento pode ser de 3x a 5x em relação ao mesmo livro publicado apenas em inglês.</p>
+    <p>Os idiomas que mais retornam para o meu catálogo, em ordem: inglês (maior mercado e maior preço de capa), espanhol (segundo maior mercado de língua nativa do mundo), alemão (mercado europeu com alto poder de compra), francês (mercado global, forte em múltiplos continentes), e português (forte em múltiplos mercados lusófonos).</p>
+    <p>Para cada idioma, o processo é o mesmo: tradução editorial com IA, revisão humana, publicação como título separado com metadados localizados. Títulos em idiomas diferentes ficam em páginas separadas na Amazon mas podem ser vinculados como série global.</p>
+  </div>
+
+  <!-- CAPÍTULO 3 -->
+  <div class="section" id="cap3">
+    <span class="chapter-label">Capítulo 3</span>
+    <h2>Imagens com IA: a Capa que Vende</h2>
+    <p class="lead">A capa não é decoração. É o seu vendedor silencioso, trabalhando 24 horas por dia, 7 dias por semana, em cada busca da Amazon onde o seu livro aparece. Uma capa ruim mata as vendas de um livro excelente. Uma capa boa faz livros medianos venderem.</p>
+
+    <h3>Os três segundos que decidem tudo</h3>
+    <p>Um leitor na Amazon vê sua capa por menos de três segundos antes de decidir se clica ou passa. Em três segundos, ele não lê o título completo, não lê a descrição, não olha os reviews. Ele olha para a imagem e decide, de forma quase inconsciente, se o livro parece profissional, se pertence ao nicho que ele está buscando e se promete algo que ele quer.</p>
+    <p>Isso tem uma implicação importante: a capa não precisa ser bela. Ela precisa ser <em>legível e reconhecível</em> como pertencente ao nicho. Um leitor que busca livros de finanças pessoais reconhece instantaneamente o padrão visual desse nicho — tipografia clean, ícones de dinheiro ou gráficos, cores sóbrias. Se a sua capa não segue esse padrão, o leitor passa para o próximo resultado, mesmo que seu livro seja melhor.</p>
+
+    <h3>O código visual do nicho</h3>
+    <p>Cada nicho na Amazon tem um conjunto de padrões visuais não escritos que os leitores aprenderam a associar com profissionalismo e qualidade. Esse conjunto é o que eu chamo de "código visual do nicho". Antes de criar qualquer capa, você precisa decodificar esse padrão.</p>
+    <p>Como fazer isso:</p>
+    <ol class="steps">
+      <li>Busque as 10 palavras-chave principais do seu nicho na Amazon.</li>
+      <li>Salve as capas dos 10 primeiros resultados de cada busca em uma pasta.</li>
+      <li>Analise os padrões: cores dominantes, estilo de tipografia (serif ou sans-serif?), uso de fotografias vs. ilustrações, presença de elementos gráficos (ícones, bordas, selos).</li>
+      <li>Identifique o que é comum em 70%+ das capas — esse é o código visual obrigatório.</li>
+      <li>Identifique o que é diferente nas capas de melhor performance — esse é o espaço para diferenciação.</li>
+    </ol>
+
+    <div class="box info">
+      <div class="box-label">Exemplos de código visual por nicho</div>
+      <p><strong>Finanças pessoais:</strong> fundo escuro ou branco, tipografia bold sans-serif, cores dourado/verde, sem fotografia de rosto.<br>
+      <strong>Livros infantis:</strong> cores vibrantes, personagem central na capa, tipografia arredondada e grande.<br>
+      <strong>Autoajuda:</strong> fotografia de natureza ou pessoa em posição de força, tipografia clean, cores pastéis ou azul.<br>
+      <strong>Ficção científica:</strong> fundos escuros, elementos espaciais, tipografia estilizada, cores neon ou metálicas.</p>
+    </div>
+
+    <h3>As ferramentas de IA para capas</h3>
+
+    <h4>ChatGPT / DALL-E — minha primeira escolha para capas</h4>
+    <p>O DALL-E, acessível via ChatGPT, é a ferramenta que mais uso para capas. A razão principal é a capacidade de integrar tipografia de forma mais coerente do que a maioria das alternativas, e o fluxo de iteração é rápido — você descreve o que quer, recebe uma opção, refina o prompt e gera nova versão. Em 30 minutos a 2 horas, você tem uma capa no nível de um designer júnior, sem pagar nada além da assinatura do ChatGPT Plus.</p>
+    <p>Para capas com texto integrado (título e autor), ainda é necessário finalizar em uma ferramenta de edição (Canva, Adobe Express ou similar) porque nenhuma IA gera tipografia 100% consistente. Mas a base visual já está pronta.</p>
+
+    <h4>Gemini (Google)</h4>
+    <p>O Gemini produz imagens realistas de alta qualidade e é especialmente bom para ilustrações de personagens. Para livros infantis com ilustrações internas, o Gemini frequentemente supera o DALL-E em naturalidade das expressões e consistência de personagem. Use Gemini quando o livro exige cenas com pessoas ou personagens humanizados.</p>
+
+    <h4>Midjourney</h4>
+    <p>Midjourney produz a qualidade artística mais elevada entre todas as ferramentas disponíveis, especialmente para ficção com elementos fantásticos, horror ou ficção científica. A curva de aprendizado é maior (acesso via Discord, prompt em inglês com parâmetros específicos) e requer assinatura paga para uso comercial. Use Midjourney quando você precisa do nível mais alto de qualidade visual para séries estabelecidas.</p>
+
+    <div class="prompt">
+      <span class="prompt-label">Prompt para ChatGPT — Capa comercial</span>
+Create a professional book cover for Amazon KDP.
+
+Title: [título do livro]
+Author: [seu nome]
+Genre: [gênero — ex: personal finance, self-help, children's book]
+Target audience: [ex: young adults 20-35, parents of young children]
+Style: professional and clean, similar to top-selling books in the [gênero] category
+Color palette: [cores — ex: dark background with gold accents, or bright colors with white text]
+Key visual element: [elemento central — ex: a simple icon of a dollar bill, a cartoon character, a minimalist abstract design]
+Dimensions: 1600x2560 pixels (Amazon KDP standard)
+Important: the title text must be clearly legible when the image is reduced to a 160px thumbnail.
+    </div>
+
+    <h3>Identidade visual de série</h3>
+    <p>Quando você publica uma série, cada volume deve ser reconhecível como parte da mesma família visual imediatamente. Isso significa: mesma paleta de cores, mesma tipografia, mesmo posicionamento do título e do nome do autor, e algum elemento visual recorrente (borda, símbolo, personagem).</p>
+    <p>A maneira mais eficiente de manter essa consistência com IA é criar um "prompt base de série" — um prompt que define todos os elementos fixos da série e que você usa como ponto de partida para cada novo volume, alterando apenas os elementos variáveis (número do volume, cor de destaque, cena específica).</p>
+
+    <h3>Ilustrações internas para livros infantis</h3>
+    <p>Livros infantis com ilustrações internas têm custo de produção convencional altíssimo — um ilustrador profissional cobra entre $50 e $200 por página. Com IA, você cria as ilustrações gratuitamente ou com custo mínimo da assinatura da ferramenta.</p>
+    <p>O desafio é manter a consistência visual do personagem de uma página para outra. Isso é resolvido com o "prompt semente" — uma descrição ultra-detalhada do personagem que você inclui em todos os prompts de ilustração. A descrição deve cobrir: cor e estilo do cabelo, cor dos olhos, cor da roupa habitual, traços físicos distintos, e estilo de arte (cartoon, realista, aquarela).</p>
+
+    <h3>Especificações técnicas do KDP</h3>
+    <p>Antes de fazer o upload da capa, verifique:</p>
+    <ul>
+      <li><strong>Ebook:</strong> 1600 x 2560 pixels mínimo, formato JPG ou TIFF, resolução de 300 DPI, espaço de cor RGB.</li>
+      <li><strong>Paperback:</strong> inclui capa frontal, lombada e contra-capa em um único arquivo. Use o gerador de templates do KDP, que calcula a largura da lombada com base no número de páginas.</li>
+      <li><strong>Teste de thumbnail:</strong> antes de finalizar, reduza a imagem para 160x256 pixels e verifique se o título ainda é legível. Se não for, aumente o tamanho da fonte ou aumente o contraste entre o texto e o fundo.</li>
+    </ul>
+  </div>
+
+  <!-- CAPÍTULO 4 -->
+  <div class="section" id="cap4">
+    <span class="chapter-label">Capítulo 4</span>
+    <h2>Publicação, SEO e Escala na Amazon</h2>
+    <p class="lead">O livro está pronto. A capa está validada. Agora vem a etapa que determina se alguém vai encontrar o seu livro — ou se ele vai ficar invisível para sempre em um catálogo de milhões de títulos.</p>
+
+    <h3>Publicação passo a passo no KDP</h3>
+    <p>O processo de publicação no KDP tem uma sequência que, se seguida corretamente, evita os erros mais comuns de iniciantes (upload de arquivo errado, capa fora de especificação, formulário fiscal incompleto).</p>
+    <ol class="steps">
+      <li><strong>Crie a conta KDP:</strong> Acesse kdp.amazon.com. Você vai precisar de: nome completo, endereço, dados bancários ou PayPal para recebimento, e preenchimento do formulário W-8BEN (dados fiscais para não-americanos). Não pule o W-8BEN — sem ele, a Amazon pode aplicar retenção maior nos royalties.</li>
+      <li><strong>Novo título:</strong> No painel, clique em "Kindle eBook" ou "Paperback". Você vai preencher o formulário em três partes: informações do livro, conteúdo, e precificação.</li>
+      <li><strong>Informações do livro:</strong> Aqui ficam título, subtítulo, série (se houver), edição, autor, e descrição. Esta é a seção mais importante para SEO — veja o capítulo a seguir para a estratégia correta.</li>
+      <li><strong>Upload do manuscrito:</strong> O KDP aceita DOCX e EPUB. Para ebooks simples, DOCX funciona bem. Para ebooks com layout complexo (livros infantis, guias técnicos), use EPUB. O Kindle Create (ferramenta gratuita da Amazon) converte e valida o arquivo antes do upload.</li>
+      <li><strong>Upload da capa:</strong> Arraste o arquivo JPG ou TIFF. O sistema valida automaticamente as dimensões e a resolução. Se houver erro, o sistema informa qual é.</li>
+      <li><strong>Visualização:</strong> Use o previewer online do KDP para ver como o livro vai aparecer no Kindle. Verifique: margens, formatação dos títulos de capítulo, espaçamento entre parágrafos.</li>
+      <li><strong>Palavras-chave e categorias:</strong> Preencha os 7 campos de palavras-chave com frases de 3 a 5 palavras. Selecione 2 categorias. A estratégia completa para esses campos está na próxima seção.</li>
+      <li><strong>Precificação:</strong> Defina o preço em dólar para o mercado americano. Para royalty de 70%, o preço deve estar entre $2,99 e $9,99. Fora desse intervalo, a Amazon paga apenas 35%.</li>
+      <li><strong>KDP Select:</strong> Decida se entra no KDP Select (exclusividade de 90 dias + Kindle Unlimited). Para iniciantes, a recomendação é entrar — o volume de leitores do KU compensa a exclusividade.</li>
+      <li><strong>Publicar:</strong> Clique em "Publish Your Kindle eBook". O processo de aprovação leva de 24 a 72 horas. A Amazon verifica o conteúdo para garantir que não há violações de direitos autorais ou conteúdo proibido.</li>
+    </ol>
+
+    <h3>SEO na Amazon: a regra mais importante</h3>
+    <p>Existe uma regra no SEO da Amazon que supera todas as outras em importância: <strong>a palavra-chave principal do seu livro deve estar no título</strong>. Não no subtítulo. Não na descrição. No título.</p>
+    <p>O algoritmo da Amazon indexa o título com peso muito maior do que qualquer outro campo. Um livro com a palavra-chave no título vai aparecer nas primeiras posições para aquela busca. Um livro com a palavra-chave apenas na descrição pode nem aparecer.</p>
+
+    <div class="example">
+      <span class="example-label">Exemplo — Título bem e mal otimizado</span>
+      <p><strong class="bad">❌ Título ruim:</strong> "Aprenda a Meditar — Uma Jornada de Paz Interior"<br>
+      Problema: nenhuma palavra-chave de busca. Quem vai digitar "jornada de paz interior" na Amazon?</p>
+      <br>
+      <p><strong class="good">✅ Título bom:</strong> "Meditação para Iniciantes: Como Reduzir a Ansiedade e Dormir Melhor em 10 Minutos por Dia"<br>
+      Palavras-chave indexadas: meditação para iniciantes, reduzir ansiedade, dormir melhor, meditação 10 minutos.</p>
+    </div>
+
+    <h3>Estrutura otimizada de título e subtítulo</h3>
+    <p>A fórmula que funciona consistentemente para não-ficção: <strong>[Palavra-chave principal]: [Benefício ou público específico em linguagem de busca]</strong>.</p>
+    <p>O subtítulo complementa o título com palavras-chave secundárias e especifica o benefício ou o método. Ele também é indexado pelo algoritmo, mas com peso menor que o título principal.</p>
+    <table class="compare">
+      <tr><th>Campo</th><th>Função</th><th>Exemplo</th></tr>
+      <tr><td>Título</td><td>Palavra-chave principal + benefício central</td><td>Finanças Pessoais para Jovens</td></tr>
+      <tr><td>Subtítulo</td><td>KW secundária + método + público</td><td>Como Economizar, Investir e Sair das Dívidas Antes dos 30</td></tr>
+    </table>
+
+    <h3>A descrição que vende</h3>
+    <p>A descrição do livro no KDP aceita HTML básico — e você deve usá-lo. Uma descrição bem formatada com negrito, listas e quebras de linha parece muito mais profissional do que um bloco de texto corrido, e isso impacta diretamente a taxa de conversão.</p>
+    <p>A estrutura de descrição que converte de forma consistente:</p>
+    <ol class="steps">
+      <li><strong>Gancho com palavra-chave principal:</strong> A primeira frase deve incluir a palavra-chave principal e prometer o benefício central. Ex: "Se você quer dominar as finanças pessoais e construir um patrimônio sólido antes dos 30, este guia foi feito para você."</li>
+      <li><strong>O problema do leitor:</strong> 2 a 3 frases descrevendo a dor ou frustração que o leitor sente antes de ler o livro. Quanto mais específico e preciso, mais o leitor se reconhece.</li>
+      <li><strong>O que o leitor vai aprender:</strong> Uma lista HTML com 5 a 7 itens concretos. Use &lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;. Cada item deve ser um resultado observável, não um tópico abstrato.</li>
+      <li><strong>Para quem é:</strong> Uma frase especificando o perfil do leitor ideal. Isso aumenta conversão porque o leitor certo se identifica — e o leitor errado não compra (e não deixa review negativo).</li>
+      <li><strong>Call to action com palavra-chave secundária:</strong> Última frase com CTA direto e a KW secundária. Ex: "Role para cima e clique em Comprar agora para começar sua jornada rumo à independência financeira."</li>
+    </ol>
+
+    <div class="prompt">
+      <span class="prompt-label">Prompt para Claude — Descrição otimizada com HTML</span>
+Escreva uma descrição otimizada para Amazon KDP usando HTML básico.
+
+Dados do livro:
+- Título: [título completo]
+- Palavra-chave principal: [KW1]
+- Palavra-chave secundária: [KW2]
+- O livro resolve: [problema central em 1 frase]
+- O leitor vai aprender: [lista de 5-7 aprendizados concretos]
+- Público-alvo: [descrição do leitor ideal]
+
+Estrutura obrigatória:
+1. Gancho (1 frase com KW1 + benefício central)
+2. Problema do leitor (2-3 frases, específico e empático)
+3. Lista &lt;ul&gt;&lt;li&gt; com o que o leitor vai aprender (5-7 itens, resultados observáveis)
+4. Para quem é (1 frase)
+5. CTA com KW2
+
+Use &lt;b&gt; para negrito nos pontos mais importantes.
+Total: 160-200 palavras.
+    </div>
+
+    <h3>Palavras-chave: os 7 campos que poucos preenchem corretamente</h3>
+    <p>O KDP oferece 7 campos de palavras-chave, cada um com até 50 caracteres. A maioria dos iniciantes preenche com termos genéricos de uma ou duas palavras — "meditação", "finanças", "autoajuda". Isso é um erro grave.</p>
+    <p>O correto é usar frases de 3 a 5 palavras com intenção de compra específica. O algoritmo usa esses campos para indexar o livro em buscas que não são cobertas pelo título. Quanto mais específica a frase, menor a concorrência e maior a probabilidade de aparecer no topo para aquela busca.</p>
+    <ul>
+      <li><strong>Nunca repita palavras do título:</strong> O algoritmo já indexa o título. Usar as mesmas palavras nos campos de KW é desperdício de espaço.</li>
+      <li><strong>Use variações e sinônimos:</strong> Se o título tem "meditação para iniciantes", use nos campos "como começar a meditar", "meditação guiada para adultos", "técnicas de mindfulness".</li>
+      <li><strong>Inclua termos de problema:</strong> "como diminuir ansiedade naturalmente", "como dormir melhor sem remédio". Essas buscas têm alta intenção de compra.</li>
+      <li><strong>Use o Google Deep Research:</strong> Para identificar quais frases têm volume de busca real, use o prompt de pesquisa de palavras-chave do Capítulo 5.</li>
+    </ul>
+
+    <h3>Categorias: como aparecer em mais de 2 lugares</h3>
+    <p>O KDP permite selecionar 2 categorias durante a publicação. Mas há um recurso que poucos conhecem: você pode solicitar até 10 categorias adicionais através do suporte da Amazon, simplesmente enviando um email com o ASIN do livro e as categorias desejadas. Isso aumenta a visibilidade do livro em múltiplas listas de best-sellers simultaneamente.</p>
+    <p>A estratégia de categorias tem dois objetivos: aparecer em categorias relevantes ao tema, e aparecer em subcategorias com competição menor para chegar ao top 100 mais facilmente. Estar no top 100 de qualquer categoria gera o selo de "#1 Best Seller" ou "Best Seller" na página do livro, o que aumenta conversão significativamente.</p>
+
+    <h3>Precificação para maximizar royalties</h3>
+    <table class="compare">
+      <tr><th>Faixa de preço</th><th>Royalty</th><th>Quando usar</th></tr>
+      <tr><td>$0,99</td><td>35%</td><td class="bad">Apenas para promoções temporárias de lançamento</td></tr>
+      <tr><td>$2,99</td><td>70%</td><td>Livros curtos (menos de 100 páginas), entrada de série</td></tr>
+      <tr><td>$3,99 – $4,99</td><td>70%</td><td class="good">Ponto ideal para a maioria dos ebooks</td></tr>
+      <tr><td>$6,99 – $9,99</td><td>70%</td><td>Guias técnicos, cursos em formato ebook, conteúdo premium</td></tr>
+      <tr><td>$10,00+</td><td>35%</td><td class="bad">Evitar — royalty cai para 35%, não compensa</td></tr>
+    </table>
+
+    <h3>Como escalar: do primeiro livro ao catálogo</h3>
+    <p>Escalar não significa trabalhar mais — significa criar sistemas que produzem mais com o mesmo esforço. Existem três modelos de escala no KDP, e você pode combinar todos eles:</p>
+
+    <h4>Modelo 1 — Profundidade: a série</h4>
+    <p>Crie 5 a 10 livros em um único nicho, formando uma série. Cada volume vendido aumenta a probabilidade de venda dos outros. O algoritmo passa a recomendar os títulos em conjunto. Após o Volume 3, o sistema começa a trabalhar sozinho. Este é o modelo de maior eficiência por esforço investido.</p>
+
+    <h4>Modelo 2 — Largura: múltiplos nichos</h4>
+    <p>Publique 2 a 3 livros em nichos diferentes para descobrir qual tem mais tração. Depois, aprofunde no nicho que funciona. Este modelo é melhor para quem está ainda explorando e não tem certeza de qual nicho é mais rentável para o seu perfil.</p>
+
+    <h4>Modelo 3 — Idiomas: o multiplicador de catálogo</h4>
+    <p>Um livro de sucesso em inglês pode ser traduzido para espanhol, alemão, francês e português com custo marginal próximo de zero usando IA. Cada versão linguística é um título separado com royalties independentes. Um catálogo de 10 livros em 5 idiomas é, na prática, 50 fontes de royalty.</p>
+  </div>
+
+  <!-- CAPÍTULO 5 -->
+  <div class="section" id="cap5">
+    <span class="chapter-label">Capítulo 5</span>
+    <h2>Arsenal de IA por Função</h2>
+    <p class="lead">Ferramenta certa para função certa. Este capítulo é uma referência — volte aqui sempre que precisar saber qual IA usar em cada etapa.</p>
+
+    <h3>Escrita e produção de texto</h3>
+
+    <h4>Claude (claude.ai)</h4>
+    <p>Melhor uso: manuscritos longos com consistência de voz, revisão profunda, reescrita de trechos artificiais, briefings editoriais complexos. O plano gratuito é suficiente para começar. O plano Pro é necessário para produção em volume (múltiplos capítulos por dia).</p>
+    <p>Ponto forte: mantém contexto longo melhor do que a maioria das alternativas, o que é crítico para capítulos extensos onde você precisa que a IA "lembre" do que foi estabelecido nos capítulos anteriores.</p>
+
+    <h4>DeepSeek (deepseek.com)</h4>
+    <p>Melhor uso: alternativa gratuita para primeiros rascunhos, textos técnicos, tradução editorial. Completamente gratuito sem limitações práticas para o volume de um iniciante. Para quem está começando e quer minimizar custos, DeepSeek resolve a maior parte das necessidades de escrita.</p>
+
+    <h3>Imagem e criação visual</h3>
+
+    <h4>ChatGPT / DALL-E</h4>
+    <p>Melhor uso: capas comerciais com tipografia, composição editorial profissional. É a ferramenta que mais uso para criar a base visual de capas. O fluxo de iteração é rápido e o resultado para fins comerciais é consistentemente bom. Requer assinatura ChatGPT Plus.</p>
+
+    <h4>Gemini (Google)</h4>
+    <p>Melhor uso: ilustrações realistas de personagens, imagens de cenas para livros infantis. Disponível gratuitamente via gemini.google.com. A integração com Google Drive facilita a organização dos arquivos gerados.</p>
+
+    <h4>Midjourney</h4>
+    <p>Melhor uso: capa de ficção com alta qualidade artística, imagens estilizadas para séries estabelecidas. Acesso via Discord. Requer assinatura paga para uso comercial. Use quando o padrão visual da série exige o nível mais alto de qualidade.</p>
+
+    <h3>Tradução</h3>
+
+    <h4>DeepSeek — tradução editorial gratuita</h4>
+    <p>Para a maioria dos projetos, DeepSeek entrega qualidade editorial satisfatória de graça. Use para tradução de manuscritos completos onde o custo é uma preocupação. Revise sempre — não publique tradução sem revisão humana, mesmo que superficial.</p>
+
+    <h4>Claude — tradução com manutenção de voz</h4>
+    <p>Quando o tom e a voz do autor são elementos centrais do livro (memórias, ficção com voz narrativa forte, humor), use Claude para tradução. Ele mantém as nuances de forma mais consistente do que alternativas gratuitas.</p>
+
+    <h3>TRAE — organização de manuscritos</h3>
+    <p>TRAE é uma IDE (ambiente de desenvolvimento integrado) com IA integrada. Para produção editorial, permite organizar capítulos como arquivos separados, versionar o manuscrito (cada versão salva fica acessível), e chamar a IA diretamente dentro do contexto do arquivo que você está editando.</p>
+    <p>Para quem produz em volume — múltiplos livros por mês — TRAE elimina o caos de múltiplas conversas de chat abertas e arquivos espalhados. Tudo fica em um único projeto organizado.</p>
+    <p>Acesse em trae.ai e configure uma pasta por livro, com um arquivo por capítulo. O versionamento automático garante que você nunca vai perder uma versão anterior do manuscrito.</p>
+
+    <h3>Google Deep Research — palavras-chave e validação de nicho</h3>
+    <p>Google Deep Research, disponível no Gemini Advanced, é uma das ferramentas menos usadas por autores na Amazon — e uma das mais valiosas. Ele conduz pesquisas aprofundadas na web em resposta a um único prompt, retornando relatórios detalhados com dados de múltiplas fontes.</p>
+    <p>Para uso no KDP, o Deep Research resolve dois problemas: validação de nicho (existe demanda real para este tema?) e pesquisa de palavras-chave (quais termos os compradores usam quando buscam livros sobre este assunto?).</p>
+
+    <div class="prompt">
+      <span class="prompt-label">Prompt para Google Deep Research — Pesquisa de palavras-chave KDP</span>
+What are the most searched terms on Amazon and Google for books about [tema]?
+
+Please provide:
+1. High-intent search terms (indicating purchase intent, not just curiosity)
+2. Long-tail keywords (4+ words) with lower competition
+3. Question-based searches people use when looking for solutions related to [tema]
+4. Estimated search volume and competition level for each term
+5. Top 5 best-selling books in this niche with their key SEO terms
+
+Focus on terms that would work as Amazon KDP keywords in 2025.
+    </div>
+
+    <h3>Formatação: publicar dentro das especificações</h3>
+    <p><strong>Kindle Create</strong> (gratuito, oficial da Amazon): ferramenta de formatação que converte DOCX para o formato Kindle, permite visualizar como o livro vai aparecer em diferentes dispositivos, e valida automaticamente os erros mais comuns. Disponível em kdp.amazon.com/en_US/help/topic/G202131100.</p>
+    <p><strong>Calibre</strong> (gratuito, open-source): converte entre formatos (DOCX, EPUB, MOBI, PDF). Útil para quem publica em múltiplas plataformas além do KDP. Disponível em calibre-ebook.com.</p>
+    <p><strong>LibreOffice Writer</strong> (gratuito): para formatação do manuscrito antes do upload. Mais estável que o Word para gerar arquivos DOCX que o KDP processa corretamente.</p>
+  </div>
+
+  <!-- CAPÍTULO 6 -->
+  <div class="section" id="cap6">
+    <span class="chapter-label">Capítulo 6</span>
+    <h2>O Segredo dos Livros que Vendem</h2>
+    <p class="lead">Não existe fórmula mágica. Mas existe uma combinação de elementos que, quando executada corretamente, faz qualquer livro bem produzido encontrar seu público na Amazon.</p>
+
+    <h3>A pirâmide de visibilidade da Amazon</h3>
+    <p>Para entender por que alguns livros vendem consistentemente e outros ficam invisíveis, você precisa entender como a Amazon decide quem aparece nas buscas. O algoritmo da Amazon, chamado internamente de A9, prioriza livros que combinam três fatores: relevância (o livro corresponde ao que o comprador buscou?), conversão (quando alguém visita a página, compra?) e velocidade de vendas (o livro está sendo comprado regularmente?).</p>
+    <p>Os dois primeiros fatores — relevância e conversão — são diretamente controláveis por você, através dos metadados (título, palavras-chave, descrição) e da qualidade da capa e da apresentação. O terceiro fator — velocidade de vendas — é consequência dos dois primeiros funcionando bem.</p>
+
+    <h3>A palavra-chave no título: por que é inegociável</h3>
+    <p>O campo "título" no KDP tem o maior peso de indexação de todos os campos. Quando alguém digita "meditação para ansiedade" na Amazon, o algoritmo prioriza livros que têm exatamente essa frase no título. Livros que têm a frase apenas na descrição aparecem muito mais abaixo — ou não aparecem.</p>
+    <p>Isso cria uma tensão que muitos autores não sabem resolver: o título precisa ser ao mesmo tempo otimizado para busca (incluir a palavra-chave) e comercialmente atraente (fazer o leitor querer clicar). A solução é a estrutura Título: Subtítulo, onde o título tem a KW e o subtítulo tem o gancho comercial.</p>
+
+    <div class="example">
+      <span class="example-label">Exemplos de títulos otimizados em diferentes nichos</span>
+      <p><strong>Nicho: produtividade</strong><br>
+      ❌ "Faça Mais em Menos Tempo: Segredos da Eficiência"<br>
+      ✅ "Produtividade para Iniciantes: Como Organizar seu Dia, Eliminar Distrações e Fazer Mais em Menos Horas"</p>
+      <br>
+      <p><strong>Nicho: receitas saudáveis</strong><br>
+      ❌ "Culinária Gostosa e Nutritiva para o Dia a Dia"<br>
+      ✅ "Receitas Low Carb para Iniciantes: 100 Pratos Simples, Rápidos e Deliciosos para Perder Peso sem Sofrimento"</p>
+      <br>
+      <p><strong>Nicho: finanças pessoais</strong><br>
+      ❌ "Meu Caminho para a Liberdade Financeira"<br>
+      ✅ "Finanças Pessoais para Iniciantes: Como Sair das Dívidas, Economizar Todo Mês e Começar a Investir com Pouco Dinheiro"</p>
+    </div>
+
+    <h3>A descrição como sistema de conversão</h3>
+    <p>A descrição tem dois papéis simultâneos: convencer o leitor humano a comprar, e fornecer palavras-chave adicionais para o algoritmo. Quando bem escrita, ela faz os dois ao mesmo tempo.</p>
+    <p>O erro mais comum é escrever uma descrição que fala sobre o livro em vez de falar com o leitor. "Este livro aborda técnicas de meditação" não vende. "Se você acorda ansioso, não consegue desligar o pensamento à noite e já tentou meditar mas desistiu porque parecia difícil demais — este guia foi criado especificamente para você" vende.</p>
+    <p>A diferença está na especificidade e na empatia. Uma descrição que nomeia a dor exata do leitor com precisão cirúrgica converte muito mais do que uma descrição que fala sobre o conteúdo de forma genérica.</p>
+
+    <h3>Reviews: o combustível do algoritmo</h3>
+    <p>Reviews são o sinal social mais poderoso dentro da Amazon. Um livro com 50 reviews positivos converte melhor do que um livro sem reviews, mesmo que o conteúdo do segundo seja superior. E o algoritmo usa a velocidade de reviews como sinal de relevância.</p>
+    <p>A forma ética e permitida pela Amazon de obter reviews iniciais é através de leitores de ARC (Advance Review Copy) — pessoas que recebem o livro gratuitamente antes do lançamento e deixam um review honesto. Você pode reunir ARCs através de grupos de Facebook sobre o nicho, comunidades do Reddit, ou simplesmente oferecendo o livro a conhecidos que se encaixam no público-alvo.</p>
+    <p>O que a Amazon proíbe é qualquer troca de review por remuneração. Não compre reviews. Não peça para amigos deixarem reviews falsos. Além de violar os termos, reviews falsos são detectados e podem resultar no banimento da conta.</p>
+
+    <h3>Otimização contínua: o livro nunca está "pronto"</h3>
+    <p>Um livro publicado não é um produto fixo — é um produto iterável. A Amazon permite que você atualize título, subtítulo, descrição, palavras-chave e categorias a qualquer momento, sem retirar o livro do ar. Isso significa que você pode testar e otimizar indefinidamente.</p>
+    <p>A rotina de otimização que recomendo: a cada 3 meses, revise os metadados de cada título. Verifique o BSR atual, compare com o período anterior, e ajuste as palavras-chave com base nas tendências de busca mais recentes. Um livro que estagnava há meses pode voltar a crescer com ajustes simples de SEO.</p>
+
+    <div class="box tip">
+      <div class="box-label">Decisão por dados, não por intuição</div>
+      <p>O painel do KDP mostra dados de vendas por título, por período, por país e por formato. Use esses dados para tomar decisões: qual nicho merece um novo volume? Qual livro tem BSR bom mas poucas páginas lidas no KU (indicando que as pessoas compram mas não terminam)? Onde estão as oportunidades de expansão? Intuição sem dados é aposta. Dados sem intuição é paralisia. Combine os dois.</p>
+    </div>
+  </div>
+
+  <!-- CAPÍTULO 7 -->
+  <div class="section" id="cap7">
+    <span class="chapter-label">Capítulo 7</span>
+    <h2>Renda Atemporal: a Mentalidade que Sustenta</h2>
+    <p class="lead">Ferramentas mudam. Algoritmos se atualizam. O que não muda é a lógica fundamental do ativo digital: você cria uma vez, ele trabalha para sempre.</p>
+
+    <h3>O que é um ativo e por que importa</h3>
+    <p>Ativo é qualquer coisa que gera receita sem exigir sua presença ativa. Um imóvel alugado é um ativo. Uma carteira de investimentos é um ativo. Um catálogo de livros na Amazon é um ativo. A distinção entre ativo e trabalho é a mais importante da educação financeira — e quase nenhum sistema de renda online ensina isso com seriedade.</p>
+    <p>A maioria dos modelos de "renda online" que existem no mercado são, na prática, trabalho disfarçado de negócio. Um canal no YouTube que precisa de postagens semanais para manter o alcance não é um ativo — é um emprego sem contrato de trabalho. Um perfil no Instagram que depende de stories diários para vender não é um ativo — é um trabalho de produção de conteúdo sem férias. A renda some quando você para.</p>
+    <p>Um livro publicado na Amazon com SEO correto não some. Ele fica lá, sendo encontrado por novos leitores todos os dias, gerando royalties sem a sua presença. Você pode passar seis meses sem fazer nada — e os royalties continuam chegando. Isso é um ativo real.</p>
+
+    <h3>Por que o dólar muda o jogo para autores internacionais</h3>
+    <p>Receber em dólar cria uma proteção cambial natural para quem vive fora dos EUA. Quando a moeda local se desvaloriza, receitas em dólar tendem a ganhar mais valor no câmbio local. É o oposto de depender apenas do mercado doméstico.</p>
+    <p>Além disso, o mercado americano tem um poder de compra médio por leitor muito alto. Um livro vendido por $4,99 em um mercado forte costuma gerar retorno superior por unidade, mesmo quando o volume de vendas é menor do que em mercados de preço baixo.</p>
+    <p>O efeito combinado de ativo + dólar torna este modelo atraente para autores de diferentes países. Você não precisa morar fora. Não precisa ter empresa nos EUA. Não precisa falar inglês fluentemente. Você precisa de um método, de ferramentas de IA e de consistência de execução.</p>
+
+    <h3>Consistência supera perfeccionismo</h3>
+    <p>O perfeccionismo é o maior inimigo da renda passiva. O livro que não foi publicado porque "ainda não está bom o suficiente" não gera nenhum royalty. O livro publicado com 80% de qualidade começa a gerar receita imediatamente — e pode ser atualizado depois.</p>
+    <p>Não estou dizendo para publicar conteúdo ruim. Estou dizendo que o padrão de "perfeito" que muitas pessoas carregam na cabeça não existe na Amazon. O que existe é "bom o suficiente para atender a demanda do leitor". Se o livro responde à pergunta que o leitor tinha quando buscou o título, ele vai vender. Se vai virar um clássico literário, isso não é relevante para a Amazon.</p>
+    <p>A diferença entre quem constrói um catálogo e quem fica no primeiro livro para sempre é simples: o primeiro publica, aprende, publica de novo. O segundo espera o momento perfeito que nunca chega.</p>
+
+    <h3>O catálogo como sistema</h3>
+    <p>Quando você tem 10 ou mais títulos publicados, algo muda no comportamento do catálogo. Os livros começam a se recomendar mutuamente. Leitores que chegam por um título descobrem os outros. O algoritmo passa a identificar você como autor ativo e relevante no nicho. As vendas deixam de ser eventos isolados e passam a ser um fluxo contínuo.</p>
+    <p>Esse efeito de sistema não acontece com 1 ou 2 livros. É por isso que a mentalidade de produtor editorial — focar em catálogo, não em obra única — é tão importante. O primeiro livro não vai te fazer rico. O catálogo pode.</p>
+  </div>
+
+  <!-- CONCLUSÃO -->
+  <div class="section" id="conclusao">
+    <span class="chapter-label">Conclusão</span>
+    <h2>O Próximo Passo é Seu</h2>
+    <p class="lead">Você tem o mapa completo. Agora existe apenas uma variável que eu não posso controlar por você: a execução.</p>
+
+    <p>Tudo que você precisa para começar está neste livro. O método de validação de nicho está no Capítulo 1. O fluxo de produção com IA está no Capítulo 2. A criação de capas está no Capítulo 3. A publicação com SEO está no Capítulo 4. As ferramentas estão no Capítulo 5. E a mentalidade que sustenta tudo está no Capítulo 7.</p>
+    <p>O que separa quem leu este livro de quem vai construir renda passiva em dólar é simples: os segundos vão executar o primeiro ciclo completo — nicho, briefing, manuscrito, capa, publicação — sem esperar o momento perfeito.</p>
+    <p>O primeiro livro vai ser imperfeito. O segundo vai ser melhor. O décimo vai ser bom. E enquanto você chega no décimo, os nove anteriores já estarão gerando royalties.</p>
+
+    <h3>Seu plano de ação para as próximas 2 semanas</h3>
+    <ul class="check">
+      <li>Abra a Amazon e escolha um nicho usando o fluxo de validação do Capítulo 1.</li>
+      <li>Use o Google Deep Research para confirmar a demanda e mapear as palavras-chave.</li>
+      <li>Crie o briefing editorial completo usando Claude ou DeepSeek.</li>
+      <li>Produza o manuscrito capítulo por capítulo com os prompts do Capítulo 2.</li>
+      <li>Crie a capa com ChatGPT usando o prompt do Capítulo 3.</li>
+      <li>Abra a conta no KDP (se ainda não tem) e preencha o formulário W-8BEN.</li>
+      <li>Publique com SEO completo: título otimizado, descrição com HTML, 7 campos de KW, 2 categorias estratégicas.</li>
+      <li>Aguarde a aprovação e comece o planejamento do segundo título.</li>
+    </ul>
+
+    <div class="box info">
+      <div class="box-label">Uma última coisa</div>
+      <p>Royalties são pagos com atraso de 60 dias. Isso significa que as vendas do seu primeiro mês chegam dois meses depois. Planeje para isso. Não abandone o método porque os primeiros 60 dias parecem silenciosos — as vendas estão acontecendo, o pagamento ainda não chegou. Continue publicando durante esse período. Quando o dinheiro começa a chegar, ele chega de múltiplos títulos ao mesmo tempo.</p>
+    </div>
+  </div>
+
+  <!-- APÊNDICES -->
+  <div class="section" id="apendice">
+    <span class="chapter-label">Apêndices</span>
+    <h2>Referências Rápidas</h2>
+
+    <h3>A — Ferramentas por função</h3>
+    <table class="compare">
+      <tr><th>Função</th><th>Ferramenta</th><th>Custo</th></tr>
+      <tr><td>Escrita (qualidade máxima)</td><td>Claude (claude.ai)</td><td>Gratuito / Pro pago</td></tr>
+      <tr><td>Escrita (gratuita)</td><td>DeepSeek (deepseek.com)</td><td>Gratuito</td></tr>
+      <tr><td>Capas</td><td>ChatGPT / DALL-E</td><td>Plus pago</td></tr>
+      <tr><td>Ilustrações</td><td>Gemini (gemini.google.com)</td><td>Gratuito</td></tr>
+      <tr><td>Qualidade artística máxima</td><td>Midjourney</td><td>Assinatura paga</td></tr>
+      <tr><td>Tradução gratuita</td><td>DeepSeek</td><td>Gratuito</td></tr>
+      <tr><td>Tradução com voz</td><td>Claude</td><td>Pro pago</td></tr>
+      <tr><td>Pesquisa de KW</td><td>Google Deep Research</td><td>Gemini Advanced</td></tr>
+      <tr><td>Organização de manuscritos</td><td>TRAE (trae.ai)</td><td>Gratuito</td></tr>
+      <tr><td>Formatação ebook</td><td>Kindle Create</td><td>Gratuito</td></tr>
+      <tr><td>Conversão de formatos</td><td>Calibre</td><td>Gratuito</td></tr>
+    </table>
+
+    <h3>B — Checklist de publicação</h3>
+    <ul class="check">
+      <li>Palavra-chave principal está no TÍTULO (não apenas no subtítulo)</li>
+      <li>Subtítulo complementa com KW secundária e benefício específico</li>
+      <li>Descrição tem gancho, problema, lista de aprendizados e CTA com HTML</li>
+      <li>7 campos de KW preenchidos com frases de 3-5 palavras (sem repetir KWs do título)</li>
+      <li>2 categorias escolhidas estrategicamente (relevantes + competição administrável)</li>
+      <li>Capa: 1600x2560px, JPG ou TIFF, 300 DPI, RGB</li>
+      <li>Legibilidade do título verificada em thumbnail (160px)</li>
+      <li>Manuscrito formatado e validado no Kindle Create</li>
+      <li>Preço entre $2,99 e $9,99 para royalty de 70%</li>
+      <li>Formulário W-8BEN preenchido (10% de retenção, não 30%)</li>
+      <li>Decisão sobre KDP Select documentada</li>
+      <li>Visualização prévia aprovada antes de publicar</li>
+    </ul>
+
+    <h3>C — Prompts de referência rápida</h3>
+
+    <h4>Briefing editorial</h4>
+    <div class="prompt">
+      <span class="prompt-label">Claude</span>
+Crie um briefing editorial completo para um ebook sobre [tema] para [público-alvo detalhado].
+Inclua: título otimizado para KDP com KW principal, 4 títulos alternativos, sumário com objetivo de cada capítulo em 2 frases, transformação central do leitor (antes/depois), 3 diferenciais competitivos, tom e estilo recomendados, 7 KWs para os campos do KDP.
+    </div>
+
+    <h4>Geração de capítulo</h4>
+    <div class="prompt">
+      <span class="prompt-label">Claude ou DeepSeek</span>
+Você é um autor especialista em [tema]. Escreva o Capítulo [X] de "[título]" para [público].
+Objetivo: [objetivo em 1 frase]. Tom: [tom]. Extensão: [X] palavras.
+Tópicos em ordem: 1.[tópico] 2.[tópico] 3.[tópico] 4.[tópico] 5.[tópico]
+Use subtítulos. Mínimo 2 exemplos concretos por seção. Termine com transição para o próximo capítulo sobre [próximo tema].
+    </div>
+
+    <h4>Revisão de naturalidade</h4>
+    <div class="prompt">
+      <span class="prompt-label">Claude</span>
+Reescreva o trecho abaixo para soar mais natural. Varie o tamanho das frases. Elimine conectivos redundantes. Substitua afirmações genéricas por dados ou exemplos concretos. Mantenha o tom [tom] e a informação intacta. Mesmo número de palavras.
+Trecho: [texto]
+    </div>
+
+    <h4>Tradução editorial</h4>
+    <div class="prompt">
+      <span class="prompt-label">DeepSeek</span>
+Traduza do português para o inglês americano. NÃO traduza literalmente. Adapte expressões idiomáticas para equivalentes naturais em inglês americano. Mantenha tom: [tom]. Público: [público]. Preserve estrutura de parágrafos e subtítulos.
+Texto: [texto]
+    </div>
+
+    <h4>Capa comercial</h4>
+    <div class="prompt">
+      <span class="prompt-label">ChatGPT / DALL-E</span>
+Create a professional Amazon KDP book cover. Title: [título]. Author: [nome]. Genre: [gênero]. Audience: [público]. Style: professional, similar to top sellers in [gênero]. Colors: [paleta]. Central element: [elemento]. 1600x2560px. Title must be legible at 160px thumbnail.
+    </div>
+
+    <h4>Descrição com HTML</h4>
+    <div class="prompt">
+      <span class="prompt-label">Claude</span>
+Escreva descrição para Amazon KDP com HTML básico. Título: [título]. KW1: [KW principal]. KW2: [KW secundária]. Resolve: [problema]. Aprende: [lista de 5-7 aprendizados concretos]. Público: [descrição]. Estrutura: (1) gancho com KW1 + benefício (2) problema do leitor (3) lista &lt;ul&gt;&lt;li&gt; com aprendizados (4) para quem é (5) CTA com KW2. Use &lt;b&gt; nos pontos mais importantes. 160-200 palavras.
+    </div>
+
+    <h4>Pesquisa de KW com Deep Research</h4>
+    <div class="prompt">
+      <span class="prompt-label">Google Deep Research</span>
+What are the most searched terms on Amazon and Google for books about [tema]? Provide: high-intent search terms (purchase intent), long-tail keywords (4+ words, lower competition), question-based searches, estimated search volume and competition level. Focus on terms working as Amazon KDP keywords in 2025.
+    </div>
+
+    <h3>D — Cronograma do primeiro livro</h3>
+    <table class="compare">
+      <tr><th>Período</th><th>Atividade</th></tr>
+      <tr><td>Dias 1-2</td><td>Pesquisa de nicho (Amazon + Google Deep Research)</td></tr>
+      <tr><td>Dia 3</td><td>Briefing editorial completo (Claude)</td></tr>
+      <tr><td>Dias 4-5</td><td>Sumário detalhado + Capítulos 1-3 (Claude ou DeepSeek)</td></tr>
+      <tr><td>Dias 6-8</td><td>Capítulos 4-7 + revisão de naturalidade</td></tr>
+      <tr><td>Dia 9</td><td>Revisão completa do manuscrito + ajustes finais</td></tr>
+      <tr><td>Dia 10</td><td>Capa (ChatGPT — 30 min a 2h) + finalização</td></tr>
+      <tr><td>Dia 11</td><td>Formatação no Kindle Create + validação</td></tr>
+      <tr><td>Dia 12</td><td>Publicação no KDP com SEO completo</td></tr>
+      <tr><td>Dias 13-14</td><td>Aguardar aprovação (24-72h) + planejamento do Volume 2</td></tr>
+    </table>
+  </div>
+
+  <p class="footer">© Guilherme Miranda · Produto digital · Todos os direitos reservados</p>
+
+</main>
+</body>
+</html>

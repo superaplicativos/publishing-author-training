@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+\1
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10826750460"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-10826750460');
+</script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank you for your purchase</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #111a2e;
+      --line: #22314f;
+      --text: #e8edf7;
+      --muted: #a6b3cc;
+      --accent: #57a6ff;
+      --ok: #44d19b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: linear-gradient(180deg, #0b1220 0%, #0f1730 100%);
+      color: var(--text);
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    .card {
+      width: min(760px, 100%);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 34px 28px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #28643f;
+      background: #0f2b1d;
+      color: #8ef3be;
+      font-size: 12px;
+      letter-spacing: .5px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .list {
+      margin: 20px 0;
+      padding-left: 18px;
+    }
+    .list li {
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 18px;
+      text-decoration: none;
+      color: #031024;
+      background: linear-gradient(135deg, #57a6ff, #7dc2ff);
+      border: 0;
+      border-radius: 12px;
+      padding: 14px 22px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .cta:hover { filter: brightness(1.05); }
+    .help {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #92a8cb;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="tag">Purchase confirmed</span>
+    <h1>Thank you for joining the course</h1>
+    <p>Your purchase has been confirmed and your onboarding is now in progress.</p>
+    <p>Along with the ebook, you get priority direct support and ongoing updates as new resources are released.</p>
+    <ul class="list">
+      <li>Priority support directly with me by email</li>
+      <li>Video lessons are currently in production</li>
+      <li>Live sessions are planned as part of upcoming releases</li>
+      <li>Author networking groups are being organized</li>
+      <li>Many new updates and resources will be released soon</li>
+    </ul>
+    <a class="cta" id="accessCourseBtn" href="./ebook_kenya_v3.html">Access Course</a>
+    <p class="help">Priority support email: <a href="mailto:superaplicativos2022@gmail.com" style="color:#9dcbff;">superaplicativos2022@gmail.com</a></p>
+    <p class="help">Early buyers are receiving a special launch offer with priority direct support from the author.</p>
+  </main>
+  <script>
+    const accessCourseBtn = document.getElementById('accessCourseBtn');
+    accessCourseBtn.addEventListener('click', function () {
+      sessionStorage.setItem('ebook_access_ok', '1');
+    });
+  </script>
+</body>
+</html>

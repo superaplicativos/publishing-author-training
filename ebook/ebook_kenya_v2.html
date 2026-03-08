@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+\1
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10826750460"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-10826750460');
+</script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recurring Dollar Income — Guilherme Miranda</title>
+  <style>
+    :root {
+      --bg: #0b1220; --card: #111a2e; --text: #e8edf7; --muted: #a6b3cc;
+      --accent: #57a6ff; --line: #22314f; --ok: #44d19b; --warn: #f7b731;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: linear-gradient(180deg,#0b1220 0%,#0f1730 100%); color: var(--text); font-family: Inter,Segoe UI,Arial,sans-serif; font-size: 17px; line-height: 1.85; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 100px; }
+    .hero { background: radial-gradient(1200px 320px at 20% -20%,#2a4d91,transparent),var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 48px 40px; margin-bottom: 28px; text-align: center; }
+    .hero h1 { font-size: 38px; line-height: 1.15; margin-bottom: 16px; color: #fff; }
+    .hero .sub { font-size: 20px; color: #9dcbff; margin-bottom: 20px; font-style: italic; }
+    .hero .author { color: var(--muted); font-size: 15px; }
+    .toc { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px 32px; margin-bottom: 32px; }
+    .toc h3 { color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin: 7px 0; }
+    .toc a { color: #9dcbff; text-decoration: none; font-size: 15px; }
+    .toc a:hover { text-decoration: underline; }
+    .section { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 40px 44px; margin-bottom: 28px; }
+    h2 { font-size: 30px; color: #fff; margin-bottom: 8px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .chapter-label { font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; display: block; }
+    h3 { font-size: 21px; color: #c8deff; margin-top: 36px; margin-bottom: 12px; }
+    h4 { font-size: 17px; color: var(--warn); margin-top: 28px; margin-bottom: 8px; }
+    p { color: var(--text); margin-bottom: 16px; }
+    .lead { font-size: 19px; color: #c0d4f0; line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+    ul, ol { padding-left: 22px; margin-bottom: 16px; }
+    li { margin-bottom: 9px; color: var(--text); }
+    strong { color: #fff; }
+    .box { border-radius: 12px; padding: 20px 24px; margin: 24px 0; border-left: 4px solid; }
+    .box.tip { background: #0d2518; border-color: var(--ok); }
+    .box.tip .lbl { color: var(--ok); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .box.warn { background: #1e1a08; border-color: var(--warn); }
+    .box.warn .lbl { color: var(--warn); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .box.info { background: #0a1e38; border-color: var(--accent); }
+    .box.info .lbl { color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .box p { margin: 0; font-size: 15px; }
+    .prompt { background: #080f1c; border: 1px solid #1e3060; border-radius: 10px; padding: 18px 22px; margin: 20px 0; font-family: 'Courier New',monospace; font-size: 14px; color: #a8d4ff; line-height: 1.6; white-space: pre-wrap; }
+    .prompt-label { font-family: Inter,sans-serif; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+    .compare { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    .compare th { background: #1a2d50; color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; padding: 12px 16px; text-align: left; }
+    .compare td { padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 15px; vertical-align: top; }
+    .compare tr:last-child td { border-bottom: none; }
+    .good { color: var(--ok); } .bad { color: #ff6b6b; }
+    .steps { counter-reset: step; list-style: none; padding-left: 0; }
+    .steps li { counter-increment: step; padding: 14px 14px 14px 56px; position: relative; background: #0a1628; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px; }
+    .steps li::before { content: counter(step); position: absolute; left: 16px; top: 14px; background: var(--accent); color: #000; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+    .check { list-style: none; padding-left: 0; }
+    .check li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+    .check li::before { content: "✓"; color: var(--ok); font-weight: 700; position: absolute; left: 0; }
+    .example { background: #0c1e38; border: 1px dashed #2a4070; border-radius: 10px; padding: 18px 22px; margin: 20px 0; }
+    .example-label { font-size: 11px; color: #9dcbff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+    hr { border: none; border-top: 1px solid var(--line); margin: 32px 0; }
+    .footer { margin-top: 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; text-align: center; }
+  </style>
+</head>
+<body>
+<main class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Recurring Dollar Income</h1>
+  <p class="sub">How to publish books on Amazon with AI and build a catalog that sells to the entire world — while you sleep.</p>
+  <p class="author"><strong>Guilherme Miranda</strong> · Author with 70+ titles in 5 languages · Dollar royalties every month</p>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#intro">Introduction — Why This Book Exists</a></li>
+    <li><a href="#cap1">Chapter 1 — The Market and the Method</a></li>
+    <li><a href="#cap2">Chapter 2 — Writing with AI: From Prompt to Manuscript</a></li>
+    <li><a href="#cap3">Chapter 3 — Covers and Images with AI</a></li>
+    <li><a href="#cap4">Chapter 4 — Publishing on Amazon KDP Step by Step</a></li>
+    <li><a href="#cap5">Chapter 5 — SEO Inside Amazon: The Secret That Sells</a></li>
+    <li><a href="#cap6">Chapter 6 — KDP Select, Kindle Unlimited and Ratings</a></li>
+    <li><a href="#cap7">Chapter 7 — Translation via API: Publishing in Multiple Languages</a></li>
+    <li><a href="#cap8">Chapter 8 — Niche and Keyword Research with Gemini Deep Research</a></li>
+    <li><a href="#cap9">Chapter 9 — Pricing, Print Books and Catalog Strategy</a></li>
+    <li><a href="#cap10">Chapter 10 — Scale, TRAE and the Professional Operation</a></li>
+    <li><a href="#conclusao">Conclusion — Your Next Step</a></li>
+    <li><a href="#apendice">Appendices — Tools, Checklists and Reference Prompts</a></li>
+  </ol>
+</div>
+
+<!-- INTRO -->
+<div class="section" id="intro">
+  <span class="chapter-label">Introduction</span>
+  <h2>Why This Book Exists</h2>
+  <p class="lead">Right now, as you read this sentence, authors with no name, no social media following and no fame are receiving dollar deposits from Amazon. Not because they did something extraordinary. Because they followed a method.</p>
+
+  <p>My name is Guilherme Miranda. I have over 70 titles published on Amazon, distributed in Portuguese, English, Spanish, German and French. My books reach readers in the United States, Europe and Latin America — in countries I have never visited, for people I will never meet. Every month, royalties arrive in my account. Not because I posted something on social media. Not because I ran a live stream. But because I built digital assets that work on their own.</p>
+
+  <p>This model is not a secret. Amazon KDP is open to everyone. AI tools are available to anyone with an internet connection. What most people are missing is not access — it is a method. Knowing exactly what to do, in what order, and why it works.</p>
+
+  <p>This book is that method. Every chapter was built from real mistakes, real wins and real data from my own catalog. This is not theory copied from blog posts. This is what I actually do, what I tested, and what I refined over time.</p>
+
+  <p>This guide was written specifically for the Kenyan market. Everything you are about to read — the tools, the strategies, the payment flow, the pricing — was adapted for your reality: earning in dollars from Kenya, receiving via PayPal, and building a global publishing business from a smartphone or laptop in Nairobi, Mombasa, Kisumu or anywhere else.</p>
+  <p>Results vary based on individual effort and skills.</p>
+
+  <h3>What You Will Learn Here</h3>
+  <ul>
+    <li>How Amazon KDP works — including exactly how royalties arrive, how the algorithm decides who appears in searches, and what KDP Select does for your visibility.</li>
+    <li>How to write complete books using Claude as your primary AI — including how to structure 10 chapters with 3 topics each so the AI never loses focus or drifts off-topic.</li>
+    <li>How to create professional covers using ChatGPT and Nanobanana, and how to format everything using the Amazon cover editor and Canva.</li>
+    <li>How to publish with real SEO inside Amazon so your book is found by people who are already ready to buy.</li>
+    <li>How to translate your books to multiple languages using the DeepSeek API — the cheapest and most reliable option available today — and how to automate this workflow with an AI IDE.</li>
+    <li>How to use Gemini Deep Research to validate niches and find the exact keywords that drive sales.</li>
+    <li>How to build a catalog strategy that grows over time: series, multiple languages, print books, and the role that KDP Select plays in all of it.</li>
+  </ul>
+
+  <div class="box info">
+    <div class="lbl">How to Use This Book</div>
+    <p>Read the chapters in order. Each one builds on the previous. Do not skip steps on your first read. Afterwards, return to each chapter as a reference while executing each phase. The prompts in the appendix are ready to use directly in the tools indicated. Copy them, adapt them to your niche, and put them to work immediately.</p>
+  </div>
+</div>
+
+<!-- CAP 1 -->
+<div class="section" id="cap1">
+  <span class="chapter-label">Chapter 1</span>
+  <h2>The Market and the Method</h2>
+  <p class="lead">Before you write a single word or generate a single image, you need to understand the game you are entering. How Amazon works, how money flows to Kenya, and why thinking in terms of a catalog — not a single book — changes everything.</p>
+
+  <h3>1.1 — What Amazon KDP Is and Why It Matters for Kenyans</h3>
+  <p>KDP stands for Kindle Direct Publishing. It is Amazon's platform that allows anyone in the world to publish ebooks and print-on-demand books without a publisher, without inventory, and without any upfront publishing cost. Registration is free. Amazon distributes to more than 100 countries. You set the price, you choose the niche, and you keep the majority of the revenue.</p>
+  <p>For a Kenyan entrepreneur, the significance of this cannot be overstated. You are gaining direct access to the world's largest book marketplace, denominated in US dollars, with no intermediaries taking a cut of your distribution. The product you create — an ebook — has zero manufacturing cost, zero shipping cost, and zero customer service cost. Amazon handles all of that. Your job is to create the content and optimize how it is found.</p>
+  <p>What artificial intelligence changed is the production barrier. Before AI, publishing a book required either exceptional writing skill or significant capital to hire writers. Today, with the right tools and the right method, anyone with a clear strategy and access to AI can produce a high-quality book in days. The playing field has been leveled in a way that disproportionately benefits people in markets like Kenya, where the cost of production is now near zero but the access to the global dollar market is the same as anyone in New York or London.</p>
+
+  <h3>1.2 — How Royalties Reach Kenya: PayPal</h3>
+  <p>This is the question that paralyzes most Kenyan beginners, so let us resolve it completely and permanently right now.</p>
+  <p>Amazon pays royalties monthly, with an operational delay of approximately 60 days after the month of sale. Sales from January are paid at the end of March. This is standard across all major international digital platforms and is not a problem — it simply means you plan accordingly and keep publishing during that period.</p>
+  <p>For Kenyan authors, the most practical payment method is PayPal. Amazon deposits your royalties in US dollars directly into your PayPal account. From there, you can move funds to your preferred local withdrawal option supported by your PayPal profile and local banking setup. This keeps the dollar earning cycle simple and reliable. You earn in dollars on the world's largest marketplace and receive your royalties through one centralized payment account.</p>
+  <p>The minimum payout threshold for PayPal is $10 per month. This means even your first small sales will be paid out relatively quickly, which is important for building confidence in the system during your early months.</p>
+
+  <div class="box tip">
+    <div class="lbl">The PayPal Royalty Flow</div>
+    <p>Amazon → PayPal (USD) → your preferred local withdrawal route. This is the complete earning cycle for Kenyan KDP authors in this method. Configure PayPal once and keep your payment details updated for continuous royalty payouts.</p>
+  </div>
+
+  <h3>1.3 — The Producer Mindset vs. The Writer Mindset</h3>
+  <p>This is the most important distinction in this entire book. The difference between someone who builds a catalog that generates consistent dollar income and someone who spends two years perfecting one book that never sells is almost entirely a matter of mindset — not skill.</p>
+  <p>A writer thinks: "I need to write something unique, something that represents my artistic vision, something that is perfect before it goes out." A publisher thinks: "Is there demand for this topic? Can I produce a book that solves this audience's problem? How quickly can I get to market?"</p>
+  <p>Both mindsets have value in different contexts. For building passive income on Amazon, the publisher mindset is non-negotiable. You are not writing literature for a Nobel Prize committee. You are creating editorial products with proven demand, positioned strategically in a global market. The quality must be good — genuinely helpful and well-organized — but "good enough to serve the reader well" is the standard, not "perfect enough to be criticized by academics."</p>
+  <p>The practical consequence of this mindset shift is significant: you plan series from the beginning, you validate demand before writing a single word, you use AI to accelerate production without sacrificing quality, and you treat each published book as the beginning of a system rather than the end of a project. The first book is not the destination. It is the first piece of infrastructure in a machine that generates income while you sleep.</p>
+</div>
+
+<!-- CAP 2 -->
+<div class="section" id="cap2">
+  <span class="chapter-label">Chapter 2</span>
+  <h2>Writing with AI: From Prompt to Manuscript</h2>
+  <p class="lead">Claude is your primary writing partner. Not because it is the only option — but because it is the best tool available today for producing long, consistent, high-quality manuscripts. The key is not which AI you use. The key is knowing exactly how to direct it.</p>
+
+  <h3>2.1 — Why Claude Is the Right Tool for Writing Full Books</h3>
+  <p>Claude has a critical advantage over other AI tools for long-form writing: it maintains context and consistency across extended manuscripts better than any alternative currently available. When you are writing a book with 10 chapters, each with 3 topics, you need the AI to remember what tone was established in Chapter 1 when it is writing Chapter 8. You need it to maintain the same vocabulary, the same level of technical depth, the same voice. Claude does this reliably in a way that other tools do not.</p>
+  <p>The free plan of Claude is sufficient to get started and understand the workflow. However, for serious production — writing multiple books, producing long chapters, maintaining full manuscript context — the Pro plan is strongly recommended. It provides significantly higher usage limits and access to the most capable model, which makes a tangible difference in the quality and length of the content generated.</p>
+  <p>When prompting Claude for epic, intensive and extensive writing — which is the standard you should always demand — use exactly that language in your prompt. Tell Claude explicitly: "Write this in an epic, intense and extensive manner. Do not summarize. Do not use bullet points where prose belongs. Write full paragraphs that are rich, detailed and complete." The difference between a prompt that says "write about topic X" and one that says "write about topic X in an epic, intense and extensive manner with full paragraphs, concrete examples and no summarization" is the difference between a mediocre draft and a publishable chapter.</p>
+
+  <h3>2.2 — The 10-Chapter, 3-Topic Structure That Keeps AI Focused</h3>
+  <p>One of the most common failures when using AI to write books is that the output becomes unfocused, repetitive or shallow when the scope is too broad. The solution that works consistently — and that I use in my own production — is the 10-chapter, 3-topic structure.</p>
+  <p>The logic is simple: ten chapters is enough to cover a topic with genuine depth without becoming encyclopedic. Three topics per chapter is enough to give each chapter substance and internal coherence without overwhelming the AI with too many simultaneous threads. Within this structure, the AI never has to hold more than three ideas in focus at any given moment, which means the output is consistently sharper and more useful than when you ask it to "cover everything about topic X."</p>
+  <p>The process works as follows. First, you create the full book outline: ten chapter titles, each with exactly three topic titles. You present this outline to Claude and ask it to confirm understanding and flag any structural issues. Then, you write one chapter at a time, one topic at a time. For each topic, you provide a specific prompt that includes: the book title, the chapter title, the topic title, the target audience, the desired tone, and the instruction to write in an epic, intense and extensive manner. You do not move to the next topic until the current one is complete and reviewed.</p>
+
+  <div class="prompt"><span class="prompt-label">Claude — Full Chapter Topic Prompt</span>You are writing a chapter for a book titled "[Book Title]" targeted at [target audience — e.g., Kenyan entrepreneurs seeking dollar income].
+
+Chapter: [Chapter Title]
+Topic: [Topic Title]
+
+Write this topic in an epic, intense and extensive manner. Use full paragraphs. Do not summarize — develop every idea fully. Include concrete examples, specific situations and practical explanations that the reader can act on immediately. Avoid bullet points where prose is appropriate. Write at least 600 words for this topic.
+
+Maintain this tone throughout: [describe tone — e.g., authoritative but accessible, direct and practical, motivating without being hyperbolic].
+
+Do not introduce ideas from other chapters. Stay focused entirely on this topic.</div>
+
+  <h3>2.3 — The Editorial Brief: The Foundation Before Any Writing Begins</h3>
+  <p>No book should be written — by you or by AI — without a complete editorial brief. The brief is the document that defines everything about the book before a single word of content is produced. It takes 30 to 60 minutes to create and saves you dozens of hours of rewriting later.</p>
+  <p>A complete brief includes: the book title with the primary keyword, four alternative title options, the full 10-chapter outline with three topics per chapter, the target reader profile (who they are, what they already know, what problem they are trying to solve), the core transformation (what the reader will be able to do after finishing that they could not do before), the tone and style, and the seven keywords for the KDP keyword fields. With this document in hand, every Claude session starts with a clear, shared context that produces focused, consistent output from the very first prompt.</p>
+
+  <div class="prompt"><span class="prompt-label">Claude — Full Editorial Brief Prompt</span>Create a complete editorial brief for a book about [topic] for [target audience].
+
+The brief must include:
+1. Primary book title with the main keyword in the title
+2. Four alternative title options
+3. Complete 10-chapter outline, each chapter with exactly 3 topic titles
+4. Target reader profile: who they are, what they know, what problem they need solved
+5. Core transformation: what the reader can do after finishing that they could not do before
+6. Tone and style description
+7. Seven keyword phrases for Amazon KDP keyword fields (use 3-5 word phrases, not single words)
+
+Be specific and actionable. This brief will be used to write the complete book.</div>
+</div>
+
+<!-- CAP 3 -->
+<div class="section" id="cap3">
+  <span class="chapter-label">Chapter 3</span>
+  <h2>Covers and Images with AI</h2>
+  <p class="lead">The cover is not decoration. It is your silent salesperson working 24 hours a day, 7 days a week, in every Amazon search where your book appears. A bad cover kills the sales of an excellent book. A strong cover sells mediocre books.</p>
+
+  <h3>3.1 — The Three-Second Decision</h3>
+  <p>A reader on Amazon sees your cover for less than three seconds before deciding whether to click or scroll past. In three seconds, they do not read the full title, do not read the description, do not check the reviews. They look at the image and decide — almost unconsciously — whether the book looks professional, whether it belongs to the niche they are searching in, and whether it promises something they want.</p>
+  <p>This has one critical implication: the cover does not need to be beautiful in an artistic sense. It needs to be immediately legible and instantly recognizable as belonging to its niche. A reader browsing personal finance books recognizes the visual code of that niche — clean typography, dollar or graph iconography, sober colors. If your cover does not follow that code, the reader moves on to the next result, even if your book is superior.</p>
+  <p>Before creating any cover, spend 20 minutes studying the top 10 best-selling covers in your niche on Amazon. Save them. Identify the patterns: dominant colors, typography style, presence or absence of photographs, use of graphic elements. Then create your cover within those patterns — not copying any single cover, but speaking the visual language that readers in your niche already trust.</p>
+
+  <h3>3.2 — ChatGPT for Covers and Nanobanana for Internal Images</h3>
+  <p>For covers, ChatGPT is the primary recommendation. The quality of cover images it generates for commercial purposes is consistently strong, the iteration cycle is fast — you describe what you want, receive an option, refine the prompt, generate a new version — and the integration between describing a composition and receiving a usable result is more reliable than most alternatives.</p>
+  <p>For internal images — illustrations inside children's books, diagrams, decorative elements — Nanobanana is the recommended tool. It specializes in consistent visual styles that work well across multiple images within the same book, which is the specific challenge of illustrated content: you need the same character to look like the same character across 20 different scenes.</p>
+  <p>Gemini also produces excellent covers and is worth testing for your specific niche. Some visual styles render better in Gemini than in ChatGPT, particularly photorealistic compositions and certain illustrated styles. Test both tools with the same prompt for your first cover and compare results before committing to one workflow.</p>
+
+  <div class="box warn">
+    <div class="lbl">Important — Do Not Specify Exact Pixel Dimensions</div>
+    <p>Trying to generate images at exact pixel dimensions (like 1600x2560) directly in AI tools rarely produces reliable results. The correct workflow is: generate the base image in ChatGPT or Nanobanana, then bring it into Canva in widescreen format to add the title text, author name and any finishing touches. After that, use the Amazon KDP cover editor to make final adjustments and ensure the cover meets Amazon's specifications. This workflow is more reliable and produces more professional results than trying to get exact dimensions from an AI image generator.</p>
+  </div>
+
+  <h3>3.3 — The Amazon Cover Editor and Canva Workflow</h3>
+  <p>The correct cover production workflow has three stages. First, generate the base visual in ChatGPT or Nanobanana — the background, the main visual element, the general composition. Do not worry about adding text at this stage; AI image generators are inconsistent with typography and you will get better results adding text separately.</p>
+  <p>Second, bring the image into Canva using the widescreen format. In Canva, add the book title, subtitle and author name using fonts and layout that match the visual code of your niche. Keep the title large enough to be legible when the cover is reduced to thumbnail size (approximately 160 pixels wide, which is how it appears in Amazon search results). Test this explicitly — zoom out until the cover is thumbnail-sized and verify the title is still instantly readable.</p>
+  <p>Third, upload the completed cover to the Amazon KDP cover editor. This tool allows final adjustments within Amazon's specifications and gives you a preview of exactly how the cover will appear on the product page before you publish. Use this preview seriously — a cover that looks good at full size can still fail at thumbnail size if the contrast is insufficient or the title font is too thin.</p>
+</div>
+
+<!-- CAP 4 -->
+<div class="section" id="cap4">
+  <span class="chapter-label">Chapter 4</span>
+  <h2>Publishing on Amazon KDP Step by Step</h2>
+  <p class="lead">Your manuscript is ready. Your cover is validated. Now comes the step that determines whether anyone will ever find your book — or whether it disappears permanently into a catalog of millions of invisible titles.</p>
+
+  <h3>4.1 — Creating Your KDP Account and Setting Up Payments</h3>
+  <p>Creating a KDP account requires: your full name, address, and payment details. For Kenyan authors, the recommended payment method is PayPal. Enter your PayPal email address in the payment section of your KDP account settings. Amazon will deposit your royalties in US dollars directly to that PayPal account.</p>
+  <p>The account setup process asks for tax information. Complete this section carefully — it determines how much Amazon withholds from your royalties before paying you. Select the non-US person option and fill in your details accurately. This is a straightforward process done entirely within the KDP interface and does not require any external documents or legal assistance.</p>
+  <p>Once your account is set up, always publish the ebook version of a title first. The ebook has faster approval, lower production complexity, and allows you to validate demand before investing time in the print version. Only move to print after the ebook shows consistent sales. This sequence saves time, reduces risk and keeps your initial catalog lean and focused.</p>
+
+  <h3>4.2 — Uploading the Manuscript: Format and Preparation</h3>
+  <p>Amazon KDP accepts manuscripts in DOCX and EPUB formats. For this method, use Google Docs to write and structure the manuscript, then export directly as EPUB for upload. Keep the document clean: proper headings, consistent paragraph spacing, and a linked table of contents.</p>
+  <p>Do not waste time manually adjusting margins, bleed, or advanced layout settings for the ebook file. Amazon handles Kindle rendering automatically across devices. Your focus is clarity, structure, and readability of content, not manual page design.</p>
+  <p>For print books, formatting requirements are more specific, but only after ebook demand is validated. Start with ebook first, keep production simple, and move to print when the title already shows traction.</p>
+
+  <h3>4.3 — The Complete Publication Checklist</h3>
+  <p>Every publication follows the same sequence. Title and subtitle with the primary keyword in the title. Description written with SEO and conversion in mind (covered in depth in the next chapter). Seven keyword fields filled with 3-to-5-word phrases that buyers actually search for. Two categories selected strategically. Cover uploaded and validated in the KDP cover editor. Manuscript exported from Google Docs as EPUB and uploaded to KDP. Pricing set based on the strategy in Chapter 9. KDP Select enrollment decision made consciously.</p>
+  <ul class="check">
+    <li>Primary keyword is in the TITLE (not just the subtitle)</li>
+    <li>Subtitle contains secondary keyword and specific benefit</li>
+    <li>Description has hook, problem, learning list and CTA — generated with AI</li>
+    <li>All 7 keyword fields filled with 3-5 word buyer phrases</li>
+    <li>2 categories selected (relevant + manageable competition)</li>
+    <li>Cover validated in Amazon KDP cover editor</li>
+    <li>Title readable as a thumbnail (zoom out to 160px and check)</li>
+    <li>Manuscript exported from Google Docs as EPUB and validated in KDP preview</li>
+    <li>KDP Select enrollment — always enroll</li>
+    <li>Publish ebook first, print only after ebook validates demand</li>
+  </ul>
+</div>
+
+<!-- CAP 5 -->
+<div class="section" id="cap5">
+  <span class="chapter-label">Chapter 5</span>
+  <h2>SEO Inside Amazon: The Secret That Sells</h2>
+  <p class="lead">Amazon is a search engine. Most people think of it as a store. That difference in perspective is the difference between a book that sells consistently and a book that sits invisible while inferior competitors rank above it.</p>
+
+  <h3>5.1 — The Golden Rule: The Primary Keyword Must Be in the Title</h3>
+  <p>Amazon's search algorithm indexes the title field with significantly higher weight than any other metadata field. When a buyer searches for "passive income for Kenyans," Amazon prioritizes books that have that exact phrase — or its closest match — in the title. Books that have the phrase only in the description or only in the keyword fields may not appear at all for that search, regardless of how good the book actually is.</p>
+  <p>This creates a tension that many authors fail to resolve: the title needs to be simultaneously optimized for search (containing the keyword) and commercially compelling (making the reader want to click). The solution is the Title: Subtitle structure. The title contains the primary keyword. The subtitle delivers the commercial hook — the specific benefit, the target audience, the promise that makes someone click.</p>
+
+  <div class="example">
+    <span class="example-label">Good vs. Bad Title Structure</span>
+    <p><strong class="bad">❌ Bad:</strong> "My Path to Financial Freedom" — No searchable keyword. No one types this into Amazon.<br><br>
+    <strong class="good">✅ Good:</strong> "Passive Income for Kenyans: How to Build Dollar Earnings Through Amazon KDP and AI Tools Without Writing a Single Word" — Primary keyword in title, specific benefit and audience in subtitle, multiple indexable phrases.</p>
+  </div>
+
+  <h3>5.2 — Writing Descriptions That Convert: AI-Assisted Copy</h3>
+  <p>The book description has two simultaneous jobs: convince the human reader to buy, and provide additional keyword signals to the Amazon algorithm. A well-written description does both at once without feeling mechanical or keyword-stuffed.</p>
+  <p>Always generate your descriptions using AI — Claude or ChatGPT. Do not write descriptions manually. AI produces better-structured, more compelling copy faster than most people can write, and the prompt-based process ensures you cover all the necessary structural elements every time. The structure that converts consistently: an opening hook that contains the primary keyword and delivers the central promise; a paragraph naming the specific problem the reader faces (the more precise, the better); a bulleted list of what the reader will learn (concrete outcomes, not abstract topics); a line specifying who this book is for; and a closing call to action that includes a secondary keyword.</p>
+  <p>The description field in KDP accepts basic HTML. Use it. Bold text, line breaks and simple bullet lists make your description look significantly more professional than a plain text block, and that visual polish directly impacts conversion rate. Use <code>&lt;b&gt;</code> for bold, <code>&lt;br&gt;</code> for line breaks, and <code>&lt;ul&gt;&lt;li&gt;</code> for lists.</p>
+
+  <div class="prompt"><span class="prompt-label">Claude or ChatGPT — Optimized KDP Description</span>Write an optimized Amazon KDP description using basic HTML.
+
+Book title: [full title]
+Primary keyword: [KW1]
+Secondary keyword: [KW2]
+The book solves: [core problem in 1 sentence]
+The reader will learn: [list 5-7 concrete outcomes]
+Target audience: [specific description]
+
+Structure required:
+1. Opening hook (1 sentence with KW1 + central promise)
+2. Reader's problem (2-3 sentences, specific and empathetic)
+3. Learning list: &lt;ul&gt;&lt;li&gt; with 5-7 concrete outcomes
+4. Who this is for (1 sentence)
+5. CTA with KW2
+
+Use &lt;b&gt; for the most important points. Total: 160-200 words.</div>
+
+  <h3>5.3 — The Seven Keyword Fields: Strategy and Execution</h3>
+  <p>Amazon gives you seven keyword fields, each allowing up to 50 characters. Most authors waste these fields with single generic words like "finance" or "productivity." This is one of the most costly and easily avoidable mistakes in KDP publishing.</p>
+  <p>The correct strategy is to use 3-to-5-word phrases with genuine buyer intent — the kind of phrases someone types into Amazon when they are ready to buy, not when they are casually browsing. Never repeat words that are already in your title, because the algorithm already indexes those. Use the seven fields to cover variations, synonyms, problem-based phrases ("how to earn dollars from kenya"), and audience-specific terms ("passive income for kenyan students", "dollar income for african entrepreneurs").</p>
+  <p>Use Gemini Deep Research (covered in Chapter 8) to generate the best keyword candidates for your specific niche before you publish. The research process takes less than 15 minutes and the improvement in ranking position from well-chosen keywords versus generic ones can be the difference between 5 sales per month and 50.</p>
+</div>
+
+<!-- CAP 6 -->
+<div class="section" id="cap6">
+  <span class="chapter-label">Chapter 6</span>
+  <h2>KDP Select, Kindle Unlimited and Ratings</h2>
+  <p class="lead">KDP Select is not just a royalty program. It is a signal to Amazon that you are a committed publishing partner — and Amazon rewards committed partners with algorithmic visibility that independent authors rarely achieve otherwise.</p>
+
+  <h3>6.1 — Always Enroll in KDP Select</h3>
+  <p>KDP Select requires digital exclusivity for 90-day renewable cycles — meaning you cannot sell the ebook on any other platform during that period. In exchange, your book is included in Kindle Unlimited, Amazon promotes it more actively in recommendation systems, and you gain access to promotional tools like Kindle Countdown Deals and Free Book Promotions.</p>
+  <p>Always enroll. The exclusivity cost is minimal because no other ebook platform comes close to Amazon's reach and conversion rate. The benefits, on the other hand, are significant: Amazon's algorithm actively favors KDP Select titles in search results and recommendation feeds, your book appears in the Kindle Unlimited library which has tens of millions of subscribers, and you receive additional royalties for every page read by KU subscribers on top of your standard sales royalties.</p>
+  <p>The enrollment is automatic at the end of each 90-day cycle unless you opt out. Review your enrollment at the end of each cycle — but unless you have a specific reason to leave (such as wanting to distribute on another platform for a particular market), the default decision should always be to remain enrolled.</p>
+
+  <h3>6.2 — Kindle Unlimited: Pages Read as a Thermometer</h3>
+  <p>Kindle Unlimited is one of the most underappreciated data sources available to KDP authors. When a KU subscriber reads your book, Amazon records exactly how many pages they read and pays you per page read (approximately $0.004 to $0.005 per page). Beyond the royalty income, the pages-read data tells you something extraordinarily valuable: whether people who start your book actually finish it.</p>
+  <p>Many people buy a book because the cover is compelling and the description is strong. But if the content does not deliver on that promise, they stop reading after the first chapter. KDP Select gives you visibility into this. If your book has solid sales but very low pages read per copy sold, that is a clear signal: the cover and description are working (people are buying) but the content is not retaining readers (they are stopping early). This data allows you to identify and fix content quality issues before they accumulate into negative reviews.</p>
+  <p>A book with strong pages-read metrics tells the opposite story: readers are finishing it, which means the content is delivering value. Amazon's algorithm notices this. Higher engagement leads to better organic ranking, which leads to more sales, which leads to more KU reads — a virtuous cycle that compounds over time for well-written books in active niches.</p>
+
+  <h3>6.3 — Reviews and Ratings: The Algorithm's Fuel</h3>
+  <p>Reviews are the most powerful social proof signal on Amazon. A book with 50 honest positive reviews converts at a dramatically higher rate than a technically superior book with zero reviews. The algorithm also uses review velocity (how quickly new reviews arrive) as a relevance signal — books that generate consistent new reviews are treated as more active and more relevant than books that stopped receiving reviews months ago.</p>
+  <p>The ethical and Amazon-approved method for building initial reviews is through ARC readers (Advance Review Copy) — people who receive the book for free before or immediately after launch and leave honest reviews. You can find ARC readers through Facebook groups related to your niche, through Reddit communities, or simply by offering the book to people in your network who match the target reader profile. The key word is honest — do not offer any incentive in exchange for a positive review. Amazon's detection systems are sophisticated, and review manipulation results in account suspension.</p>
+  <p>After launch, include a brief and natural request for a review at the end of your book. Something like: "If this book helped you, taking 60 seconds to leave a review on Amazon makes an enormous difference — both for other readers who are trying to find good resources, and for me as an independent author. Thank you." This kind of organic request, written as a genuine human appeal rather than a formal instruction, converts at a meaningfully higher rate than a stiff "please leave a review" notice.</p>
+</div>
+
+<!-- CAP 7 -->
+<div class="section" id="cap7">
+  <span class="chapter-label">Chapter 7</span>
+  <h2>Translation via API: Publishing in Multiple Languages</h2>
+  <p class="lead">A book published in five languages is, in practice, five independent income streams built from a single product. The marginal cost is almost zero. The impact on total royalties can be three to five times what the original language generates alone.</p>
+
+  <h3>7.1 — Why DeepSeek API Is the Best Translation Option Today</h3>
+  <p>DeepSeek is currently the cheapest high-quality AI translation option available — significantly cheaper than OpenAI's API or Claude's API for the same volume of text, while delivering editorial-quality output. "Editorial quality" means the translation does not read like a machine translated it. Idiomatic expressions are adapted to their equivalents in the target language. The tone and register of the original are preserved. Cultural references are handled appropriately. The result reads like the book was written in the target language, not translated from another.</p>
+  <p>This is the critical distinction between a tool like Google Translate (which produces functional but often unnatural output) and an AI model called with the right prompt via API. Google Translate processes text sentence by sentence without understanding the broader context of what is being translated. A properly prompted AI model understands that it is translating a chapter from a book about a specific topic for a specific audience, and produces output that is consistent, natural and publication-ready.</p>
+  <p>The translation workflow via API also provides a level of control and automation that manual copy-paste approaches cannot match. You can translate an entire manuscript — all 10 chapters, plus the introduction, conclusion and appendices — in a single scripted operation, which takes minutes rather than hours.</p>
+
+  <h3>7.2 — The TRAE + DeepSeek API Workflow</h3>
+  <p>TRAE is an AI-agent IDE and the practical control center for this workflow. It is not a free utility; paid plans start at around $3. In exchange, you gain a much more advanced environment to organize files, build scripts, and run API operations with context-aware AI assistance.</p>
+  <p>For translation, the workflow is simple: keep one file per chapter in TRAE, run a script that calls DeepSeek API, and save each translated chapter into language-specific folders. This dramatically reduces manual work and makes multi-language publishing scalable. A dedicated companion material will cover this in full depth, and using TRAE early is strongly recommended for anyone serious about production speed and consistency.</p>
+  <p>The languages with the highest return for KDP authors, in order of royalty volume: English (largest market, highest cover prices), Spanish (second largest native-speaker market globally), German (European market with high purchasing power), French (global market, strong across multiple continents), and Portuguese (strong across multiple Portuguese-speaking markets). A book in all five languages maximizes global reach from a single content investment.</p>
+
+  <h3>7.3 — Final Review: Using ChatGPT to Avoid Embarrassment Before Publishing</h3>
+  <p>Before publishing any translated book, run the final manuscript through ChatGPT with a specific quality review prompt. The purpose of this step is not to re-translate the content — the DeepSeek translation is already high quality. The purpose is to catch any remaining awkward phrasings, cultural missteps, or expressions that might confuse or offend readers in the target market. This is especially important for markets you are not deeply familiar with.</p>
+  <p>This final review step takes approximately 20 to 30 minutes per book and can save you from publishing something that generates negative reviews or, worse, becomes a cultural misstep that damages your author profile in that market. The cost of this step is minimal — it uses the standard ChatGPT interface, not the API — and the protection it provides is significant.</p>
+
+  <div class="prompt"><span class="prompt-label">ChatGPT — Pre-Publication Quality Review</span>You are a professional editor and native speaker of [target language — e.g., English, Spanish, German].
+
+Review the following text from a book about [topic] targeting [target audience].
+
+Check for:
+1. Any phrases that sound unnatural or machine-translated
+2. Cultural references or expressions that would confuse or offend readers in [target country/market]
+3. Terminology that is inconsistent or inaccurate for this topic in [target language]
+4. Any sentences that are grammatically correct but would read awkwardly to a native speaker
+
+For each issue found, provide: the original phrase, what is wrong with it, and a suggested correction.
+
+If the text reads naturally and professionally, confirm that it is ready for publication.
+
+Text: [paste the chapter or section here]</div>
+</div>
+
+<!-- CAP 8 -->
+<div class="section" id="cap8">
+  <span class="chapter-label">Chapter 8</span>
+  <h2>Niche and Keyword Research with Gemini Deep Research</h2>
+  <p class="lead">Publishing without research is gambling. Publishing after research is strategy. Gemini Deep Research is the tool that transforms niche selection from intuition into data — and keyword selection from guesswork into precision.</p>
+
+  <h3>8.1 — What Gemini Deep Research Does That Other Tools Cannot</h3>
+  <p>Gemini Deep Research, available in the Gemini Advanced plan, conducts comprehensive web research in response to a single prompt. Unlike a standard web search that returns a list of links, Deep Research synthesizes information from dozens of sources into a structured, detailed report. It takes several minutes to complete and the output is significantly more useful than anything you would get from manually browsing search results.</p>
+  <p>For KDP authors, this tool solves two problems simultaneously. First, niche validation: does genuine, measurable demand exist for books on this topic right now? Second, keyword mapping: what exact phrases do buyers type into Amazon and Google when they are looking for books in this niche? These are the two most important questions before starting any new book project, and Deep Research answers both of them with a level of thoroughness that would take hours to replicate manually.</p>
+  <p>The output of a well-crafted Deep Research prompt includes: search volume estimates for specific keyword phrases, analysis of the competitive landscape (how many books exist, what their review counts are, whether there is room for new entrants), identification of gaps in the current offerings (what readers are asking for that existing books are not delivering), and a ranked list of keyword phrases suitable for your KDP metadata fields.</p>
+
+  <h3>8.2 — The Niche Validation Prompt</h3>
+  <p>Use this prompt at the beginning of every new book project, before writing a single word of content. The information it returns will shape your title, your subtitle, your keyword fields, your description, and even the specific topics you cover in each chapter.</p>
+
+  <div class="prompt"><span class="prompt-label">Gemini Deep Research — Niche Validation and Keyword Mapping</span>Conduct a thorough research analysis for the Amazon KDP book publishing niche on [topic].
+
+I need the following specific information:
+
+1. DEMAND VALIDATION
+Is there proven, measurable demand for books on this topic on Amazon? What evidence supports this (search volumes, best-seller rankings, review counts for existing books)?
+
+2. COMPETITIVE LANDSCAPE
+How many books currently exist in this niche? What are the top 5 best-sellers, their approximate BSR (Best Seller Rank), and their review counts? Is there room for a new title to compete?
+
+3. KEYWORD MAPPING
+What exact phrases do buyers type into Amazon and Google when searching for books on this topic? Provide a ranked list of at least 15 keyword phrases with: the exact phrase, estimated monthly search volume, and competition level (low/medium/high). Prioritize phrases with purchase intent (not just informational searches).
+
+4. CONTENT GAPS
+What are readers asking for in reviews of existing books that those books are not delivering? What topics are underrepresented in the current catalog?
+
+5. TOP 7 KEYWORDS
+Based on your analysis, select the 7 best keyword phrases for the Amazon KDP keyword fields for a new book on this topic. Each phrase should be 3-5 words, have buyer intent, and have manageable competition.
+
+Focus on data from 2024-2025.</div>
+
+  <h3>8.3 — Translating Research Into Metadata</h3>
+  <p>The output of the Deep Research process feeds directly into every metadata field of your KDP listing. The primary keyword identified in the research goes into your title. Secondary keywords inform your subtitle and description. The seven keyword field entries come directly from the ranked list in the research output. The content gaps analysis shapes what topics you prioritize in your chapters. The competitive landscape data tells you how to position your book relative to what already exists — where to differentiate and where to align with established expectations.</p>
+  <p>This process transforms what many authors treat as an afterthought — metadata — into the foundation of the book's discoverability strategy. A book with strong metadata and average content will consistently outsell a book with exceptional content and weak metadata, because the second book simply will not be found by the buyers who would love it. Build the metadata strategy first. Let it inform the writing. Then publish with confidence that the book is positioned to be found.</p>
+</div>
+
+<!-- CAP 9 -->
+<div class="section" id="cap9">
+  <span class="chapter-label">Chapter 9</span>
+  <h2>Pricing, Print Books and Catalog Strategy</h2>
+  <p class="lead">Pricing is not a formula. It is a variable you test, adjust and optimize based on data. What is certain is that print books generate more royalty per unit than ebooks — and that a well-structured catalog multiplies revenue in ways that no single title ever can.</p>
+
+  <h3>9.1 — Pricing Strategy: Test, Do Not Guess</h3>
+  <p>There is no universally correct price for an ebook. The right price depends on the niche, the competitive positioning, the perceived value of the content, and the market you are targeting. What works as a principle: start at a price that is easy for your target buyer to justify, observe the conversion rate, and adjust based on what the data shows.</p>
+  <p>A practical starting approach for a new title is to launch at a lower price point to generate initial velocity — sales, reviews and KU page reads — and then gradually increase the price as social proof accumulates. A book with 30 positive reviews can command a higher price than the same book with zero reviews, because the reviews themselves become part of the value proposition.</p>
+  <p>Another effective technique is the "anchor and sell" approach within a series: the first volume is priced low (even $0.99 during launch) to reduce the barrier to entry and drive volume, while subsequent volumes are priced higher. Readers who enjoyed Volume 1 are far less price-sensitive when purchasing Volume 2 — they have already validated that the author delivers value.</p>
+
+  <h3>9.2 — Print Books: Where the Real Royalties Are</h3>
+  <p>Print-on-demand through KDP is where the most significant per-unit royalties are generated. A print book priced at $12.99 with a black and white interior generates a meaningfully higher dollar royalty than an ebook priced at $4.99, because the print royalty is calculated on the list price minus the printing cost, and with black and white interiors that printing cost is low enough to preserve a healthy margin.</p>
+  <p>Always publish with black and white interiors for print books unless your content absolutely requires color (art books, photography books, detailed infographics). Color printing costs are substantially higher, which forces you into a higher price point that reduces conversion. A well-designed black and white interior with clear typography and good layout looks completely professional and sells just as well as a color version for the vast majority of nonfiction and fiction categories.</p>
+  <p>The production sequence is always: ebook first, print second. Launch the ebook, validate demand, collect initial reviews, then add the print version. The print version appears on the same Amazon product page as the ebook, sharing all the reviews and the accumulated sales history. This concentrates social proof in one place rather than splitting it across two separate listings.</p>
+
+  <h3>9.3 — Catalog Strategy: How the System Compounds</h3>
+  <p>A single book is a product. A catalog is a system. The difference in income potential between a single book and a well-structured catalog is not linear — it is exponential. When you have 10 or more titles in related niches or series, the books begin to recommend each other, the algorithm identifies you as an active and relevant author, and buyers who discover one title naturally explore the others.</p>
+  <p>Three catalog models that work consistently: the series model (five to ten books in the same niche or narrative series, where each book drives sales of the others); the breadth model (two to three books in different niches to identify which generates the most traction, then deepening in the best-performing niche); and the language multiplication model (taking a successful English title and publishing it in Spanish, German, French and Portuguese, creating five separate royalty streams from a single content investment). The most powerful long-term strategy combines all three: a series in multiple languages across multiple niches, with print versions of the best performers added over time.</p>
+</div>
+
+<!-- CAP 10 -->
+<div class="section" id="cap10">
+  <span class="chapter-label">Chapter 10</span>
+  <h2>Scale, TRAE and the Professional Operation</h2>
+  <p class="lead">The difference between an author who earns $50 a month and one who earns $2,000 a month is rarely the quality of the writing. It is the presence or absence of a professional production system that allows consistent output without constant reinvention of the process.</p>
+
+  <h3>10.1 — TRAE: The Command Center of Your Publishing Operation</h3>
+  <p>TRAE is an IDE — an Integrated Development Environment — with native AI assistance. For most people, the word "IDE" suggests something relevant only to software developers. This is a misconception. TRAE is useful for anyone who works with text files, scripts and automated processes — which is exactly what a professional KDP publishing operation involves.</p>
+  <p>Within TRAE, you can organize your entire publishing operation: one project per book, one folder per chapter, version control that saves every iteration of every file so you never lose a previous version, and direct access to AI assistance within the context of the files you are editing. Instead of having 15 browser tabs open (one for each chapter in Claude, one for research, one for KDP), your entire workflow lives in a single organized environment.</p>
+  <p>TRAE is also the environment where you run the DeepSeek API translation scripts described in Chapter 7. The script calls the API, processes each chapter file, and outputs the translated versions — all within TRAE, without switching between different tools. For a serious publishing operation handling multiple books in multiple languages simultaneously, this level of operational consolidation is not a luxury — it is what makes the operation sustainable at scale.</p>
+  <p>A dedicated ebook covering the full TRAE workflow — setup, project organization, AI integration, and the complete translation script — is available as a companion guide. The investment in learning TRAE properly pays for itself after the first book you translate with it.</p>
+
+  <h3>10.2 — Building a Sustainable Publishing Rhythm</h3>
+  <p>Consistency of output is the single most predictable driver of long-term catalog growth. An author who publishes one new title per month will have 12 titles after a year. An author who publishes one perfect title after a year has one title. The catalog of 12 imperfect-but-good titles will generate dramatically more total royalties than the one perfect title, both because of the volume of entry points into the catalog and because of the algorithmic signal that consistent new publications send to Amazon.</p>
+  <p>A sustainable publishing rhythm is built on three foundations: a repeatable production process (editorial brief, 10-chapter structure, Claude writing, ChatGPT cover, Canva finishing, KDP upload), a clear weekly time allocation (even four hours per week, applied consistently, produces a new title every three to four weeks), and a decision-making framework for niche selection that prevents paralysis (use the Deep Research process, make a decision in one day, and begin immediately).</p>
+  <p>The enemy of a sustainable rhythm is perfectionism. A title that is 90% as good as your best work and published is infinitely more valuable than a title that is 100% perfect and still being refined six months later. The market gives you feedback that no amount of internal revision can replace. Publish, observe the data, improve the next one.</p>
+
+  <h3>10.3 — Reading the Data and Refining Continuously</h3>
+  <p>The KDP dashboard provides data that most authors completely ignore: sales by title, sales by country, pages read in Kindle Unlimited by title, and historical trends over time. This data is the most valuable feedback loop you have access to, and reading it regularly is the difference between a catalog that grows intentionally and one that grows randomly.</p>
+  <p>Read your dashboard monthly. For each title, ask: Is the pages-read-to-sales ratio healthy? (If people are buying but not reading, the content is underdelivering on the promise made by the cover and description.) Are there specific countries generating disproportionate sales? (This signals an opportunity to invest in a translation or localized version for that market.) Are there titles with declining BSR despite no change in metadata? (This may indicate the niche is becoming more competitive and the title needs a refresh of its keywords and description.)</p>
+  <p>Every author who treats their catalog as a living system — something to be monitored, adjusted and improved continuously — outperforms those who treat publication as the end of the process. The best books in your catalog are not necessarily the ones you wrote best. They are the ones you optimized most consistently over time. That optimization is a choice available to every author, every month, at no cost beyond 30 minutes of focused attention on the dashboard data.</p>
+</div>
+
+<!-- CONCLUSAO -->
+<div class="section" id="conclusao">
+  <span class="chapter-label">Conclusion</span>
+  <h2>Your Next Step</h2>
+  <p class="lead">You have the complete map. There is now only one variable I cannot control for you: execution.</p>
+
+  <p>Everything you need to start is in this book. The market understanding and producer mindset are in Chapter 1. The AI writing workflow is in Chapter 2. Cover creation is in Chapter 3. Publication mechanics are in Chapter 4. SEO strategy is in Chapter 5. KDP Select and the rating system are in Chapter 6. Translation infrastructure is in Chapter 7. Niche research is in Chapter 8. Pricing and catalog strategy are in Chapter 9. And the professional production system is in Chapter 10.</p>
+  <p>What separates the people who read this and build real dollar income from those who read it and remain where they are is not intelligence, resources or circumstances. It is the decision to complete the first full cycle — niche research, editorial brief, manuscript, cover, publication — without waiting for the perfect moment, the perfect niche or the perfect first book.</p>
+  <p>Your first book will be imperfect. It will teach you more about this market than any amount of additional reading. And while you are writing the second book, the first one will already be generating royalties. By the time you have ten titles published, the system will be visible to you in a way that no amount of theoretical preparation makes possible. The compounding begins the moment you publish. Not the moment you finish reading.</p>
+
+  <h3>Your Action Plan for the Next Two Weeks</h3>
+  <ul class="check">
+    <li>Open Amazon and choose a niche using the validation framework from Chapter 1.</li>
+    <li>Run the Gemini Deep Research prompt from Chapter 8 to validate demand and map keywords.</li>
+    <li>Create the complete editorial brief using Claude (Chapter 2 prompt).</li>
+    <li>Write the manuscript chapter by chapter using the 10-chapter, 3-topic structure.</li>
+    <li>Create the cover using ChatGPT or Nanobanana, finish in Canva, validate in Amazon's cover editor.</li>
+    <li>Create your KDP account and set up PayPal for royalty payments.</li>
+    <li>Publish with complete SEO: optimized title, AI-generated description with HTML, seven keyword phrases, two strategic categories, KDP Select enrolled.</li>
+    <li>While waiting for approval (24-72 hours), begin the editorial brief for the second title.</li>
+  </ul>
+
+  <div class="box info">
+    <div class="lbl">One Final Note</div>
+    <p>Royalties are paid with a 60-day delay. Your first month's sales arrive two months later. This is normal. Plan for it. Do not abandon the method because the first 60 days feel silent — the sales are happening, the payment is simply not yet due. Keep publishing during that period. When the money starts arriving, it arrives from multiple titles simultaneously. That is when the system becomes unmistakably real.</p>
+  </div>
+</div>
+
+<!-- APENDICE -->
+<div class="section" id="apendice">
+  <span class="chapter-label">Appendices</span>
+  <h2>Quick Reference</h2>
+
+  <h3>A — Tools by Function</h3>
+  <table class="compare">
+    <tr><th>Function</th><th>Tool</th><th>Cost</th></tr>
+    <tr><td>Writing — full manuscripts</td><td>Claude (claude.ai)</td><td>Free plan to start; Pro recommended for serious production</td></tr>
+    <tr><td>Covers</td><td>ChatGPT (chat.openai.com)</td><td>Free and paid plans available</td></tr>
+    <tr><td>Internal illustrations</td><td>Nanobanana</td><td>Subscription</td></tr>
+    <tr><td>Cover finishing and formatting</td><td>Canva</td><td>Free / Pro</td></tr>
+    <tr><td>Cover validation</td><td>Amazon KDP Cover Editor</td><td>Free (built into KDP)</td></tr>
+    <tr><td>Translation</td><td>DeepSeek API</td><td>Paid per token — cheapest option available</td></tr>
+    <tr><td>Workflow automation IDE</td><td>TRAE (trae.ai)</td><td>From $3 (paid plans)</td></tr>
+    <tr><td>Pre-publication quality review</td><td>ChatGPT</td><td>Free and paid plans available</td></tr>
+    <tr><td>Niche and keyword research</td><td>Gemini Deep Research</td><td>Gemini Advanced subscription</td></tr>
+    <tr><td>Manuscript formatting</td><td>Google Docs (export as EPUB)</td><td>Free</td></tr>
+    <tr><td>Titles, descriptions, metadata</td><td>Claude or ChatGPT</td><td>Respective subscriptions</td></tr>
+  </table>
+
+  <h3>B — Publication Checklist</h3>
+  <ul class="check">
+    <li>Primary keyword is in the TITLE (not just the subtitle)</li>
+    <li>Subtitle contains secondary keyword and specific benefit</li>
+    <li>Description generated with AI — hook, problem, learning list, CTA, HTML formatting</li>
+    <li>All 7 keyword fields filled with 3-5 word buyer phrases (no single words, no title repetition)</li>
+    <li>2 categories selected strategically</li>
+    <li>Cover created in ChatGPT or Nanobanana, finished in Canva, validated in KDP Cover Editor</li>
+    <li>Title readable as a 160px thumbnail — verified before upload</li>
+    <li>Manuscript prepared in Google Docs, exported as EPUB, and validated in KDP preview</li>
+    <li>KDP Select: always enroll</li>
+    <li>Ebook published first — print only after ebook validates demand</li>
+    <li>PayPal account linked to KDP and payment profile verified</li>
+    <li>Review request included naturally at the end of the book</li>
+  </ul>
+
+  <h3>C — Reference Prompts</h3>
+
+  <h4>Editorial Brief</h4>
+  <div class="prompt"><span class="prompt-label">Claude</span>Create a complete editorial brief for a book about [topic] for [target audience].
+Include: title with primary keyword, 4 alternative titles, 10-chapter outline with 3 topics each, reader profile, core transformation, tone description, 7 KDP keyword phrases (3-5 words each, buyer intent).</div>
+
+  <h4>Chapter Topic (Epic and Extensive)</h4>
+  <div class="prompt"><span class="prompt-label">Claude</span>Book: "[Title]" — Target: [audience]
+Chapter: [Chapter Title] — Topic: [Topic Title]
+Write in an epic, intense and extensive manner. Full paragraphs. No summarizing. Develop every idea fully with concrete examples and practical guidance. Minimum 600 words. Maintain tone: [tone]. Stay focused on this topic only.</div>
+
+  <h4>KDP Description with HTML</h4>
+  <div class="prompt"><span class="prompt-label">Claude or ChatGPT</span>Write an optimized Amazon KDP description with HTML. Title: [title]. KW1: [primary]. KW2: [secondary]. Solves: [problem]. Reader learns: [5-7 outcomes]. Audience: [description].
+Structure: (1) hook with KW1 (2) reader's problem (3) &lt;ul&gt;&lt;li&gt; learning list (4) who it's for (5) CTA with KW2. Use &lt;b&gt; for emphasis. 160-200 words.</div>
+
+  <h4>Niche and Keyword Research</h4>
+  <div class="prompt"><span class="prompt-label">Gemini Deep Research</span>Analyze Amazon KDP demand for books about [topic]. Provide: demand evidence (BSR, review counts), top 5 competitors, 15+ keyword phrases with search volume and competition level (prioritize buyer intent), content gaps in existing books, and the 7 best keyword phrases for KDP fields. Focus on 2024-2025 data.</div>
+
+  <h4>Pre-Publication Quality Review</h4>
+  <div class="prompt"><span class="prompt-label">ChatGPT</span>You are a professional editor and native [language] speaker. Review this text from a book about [topic] for [audience]. Check for: unnatural or machine-translated phrases, cultural missteps for [target market], inconsistent terminology, grammatically correct but awkward sentences. For each issue: original phrase, problem, suggested correction. If the text reads naturally and professionally, confirm it is ready for publication.
+Text: [paste here]</div>
+
+  <h4>Translation (DeepSeek API with TRAE)</h4>
+  <div class="prompt"><span class="prompt-label">DeepSeek API</span>Translate the following text from [source language] to [target language]. Do NOT translate literally. Adapt idiomatic expressions to natural equivalents in [target language]. Maintain tone: [tone]. Audience: [audience in target market]. Preserve all paragraph structure, headings and formatting.
+Text: [text]</div>
+
+  <h3>D — First Book Schedule (Beginner to Advanced)</h3>
+  <p>The schedule below is for someone starting from zero — no KDP account, no AI workflow established, no prior experience. It is intentionally paced to allow absorption of each step without overwhelm. Once you complete your first book and internalize the process, the timeline collapses dramatically.</p>
+  <p><strong>Experienced authors who have mastered the method regularly publish 2 to 3 books per day, dedicating approximately 4 hours per book.</strong> This is not an exaggeration — it is the natural result of a fully internalized workflow where every step is automatic: the brief is done in minutes, Claude writes each chapter in one focused session, the cover is done in one pass, and the KDP upload is a routine operation. Your first book takes days. Your tenth takes hours. Your thirtieth might take an afternoon.</p>
+  <table class="compare">
+    <tr><th>Phase</th><th>Task</th><th>Time Estimate</th></tr>
+    <tr><td>Niche + Research</td><td>Amazon browsing + Gemini Deep Research prompt</td><td>1–2 hours</td></tr>
+    <tr><td>Editorial Brief</td><td>Complete brief with Claude (title, 10 chapters, 3 topics each, keywords)</td><td>30–60 min</td></tr>
+    <tr><td>Manuscript</td><td>10 chapters × 3 topics — Claude session by session</td><td>3–6 hours (beginner) / 1–2 hours (advanced)</td></tr>
+    <tr><td>Cover</td><td>ChatGPT or Nanobanana → Canva → KDP Cover Editor</td><td>30–60 min</td></tr>
+    <tr><td>Formatting</td><td>Google Docs export to EPUB + KDP preview</td><td>10–20 min</td></tr>
+    <tr><td>Publication</td><td>KDP upload + full metadata + KDP Select enrollment</td><td>20–30 min</td></tr>
+    <tr><td>Approval wait</td><td>Amazon review — nothing to do, begin next book</td><td>24–72 hours</td></tr>
+  </table>
+  <div class="box tip">
+    <div class="lbl">The Compounding Effect of Speed</div>
+    <p>At 2 books per week — a conservative pace for anyone who has completed their first 3 books — you will have over 100 titles published within a year. Each title is an independent income stream. Each KDP Select enrollment is a signal to Amazon that you are an active, committed author. The algorithm rewards volume as much as quality. Both together is the formula.</p>
+  </div>
+</div>
+
+<!-- SUPORTE E COMUNIDADE -->
+<div class="section" style="background: linear-gradient(135deg,#0d2040,#0a2d1a); border-color: #1a4a30;">
+  <span class="chapter-label" style="color: #44d19b;">Your Community</span>
+  <h2 style="color: #fff;">You Are Not Alone in This Journey</h2>
+  <p class="lead">Purchasing this course is not the end of a transaction. It is the beginning of a direct relationship with the author and a growing community of KDP publishers who are building their dollar income right now.</p>
+
+  <h3 style="color: #7de8b0;">Direct WhatsApp Support</h3>
+  <p>As a student of this course, you have direct access to a WhatsApp support channel where you can ask any question about the method — at any stage of the process. Whether you are stuck on your first niche choice, having trouble with cover formatting, or trying to understand a royalty report, the support is real, personal and handled by someone who has actually done this with 70+ published titles.</p>
+  <p>No chatbots. No ticket systems. No waiting days for a generic response. Real answers from someone who is actively in the market you are entering.</p>
+
+  <div class="box tip">
+    <div class="lbl">Coming Soon</div>
+    <p><strong>Authors Networking Group:</strong> A private community exclusively for students of this course — a space to share results, exchange niche ideas, ask for cover feedback, celebrate first sales, and collaborate on translation projects. Connecting with other authors who are on the same path accelerates your progress in ways that learning alone simply cannot replicate.</p>
+    <p style="margin-top: 10px;"><strong>Author Community on the Website:</strong> An expanding knowledge base, discussion space and resource hub on the official course website — designed to grow alongside the community of authors building their catalogs with this method.</p>
+  </div>
+
+  <p>The combination of a proven method, the right tools, direct personal support, and a community of active publishers is everything you need to go from zero to your first dollar royalty — and from there, to a catalog that compounds over time into meaningful recurring income.</p>
+  <p><strong>Your first book is one focused session away. Start today.</strong></p>
+</div>
+
+<p class="footer">Business Identity: GUILHERME MIRANDA DE AGUIAR ME · CNPJ 07.956.399/0001-28<br>Commercial Address: Rua Dr Ari Mariano da Silva, 165 - Sala 3 - Ribeirão Preto - SP - Brazil<br>© Guilherme Miranda · Digital product · All rights reserved</p>
+</main>
+</body>
+</html>
